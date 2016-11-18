@@ -1,0 +1,1258 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"current",
+				"current_time"
+			],
+			[
+				"rich",
+				"ol-rich-modal-footer"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"fourteen",
+				"fourteenDaysAgo"
+			],
+			[
+				"favou",
+				"favouriteNRLteam"
+			],
+			[
+				"sev",
+				"sevenDaysAgo"
+			],
+			[
+				"two",
+				"twoDaysAgo"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"recv",
+				"recvbuff"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/Chris/Documents/otherlevels/Clients/Tatts/PushTesting/sendpush.sh",
+			"settings":
+			{
+				"buffer_size": 170,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/otherlevels/Clients/Tatts/PushTesting/pushbody",
+			"settings":
+			{
+				"buffer_size": 240,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/OtherLevels/Clients/Coles/PushTesting/pushbody",
+			"settings":
+			{
+				"buffer_size": 211,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/OtherLevels/Clients/Coles/PushTesting/sendpush.sh",
+			"settings":
+			{
+				"buffer_size": 170,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Dropbox/Accounts/Australia Clients: Prospects/Tatts/ExampleOfDataExport.csv",
+			"settings":
+			{
+				"buffer_size": 341,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/coles/test.html",
+			"settings":
+			{
+				"buffer_size": 3004,
+				"line_ending": "Unix",
+				"name": "<style type=\"text/css\">.test{"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/arn/kiis.html",
+			"settings":
+			{
+				"buffer_size": 177779,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/OtherLevels/Clients/Tatts/SendAndAnalyze_FileImport_PoC/automatic_test_file.csv",
+			"settings":
+			{
+				"buffer_size": 879,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/OtherLevels/ol_campaigns-query.txt",
+			"settings":
+			{
+				"buffer_size": 11639,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/OtherLevels/clients/Yarra Trams/data/loaddata_auto.sh",
+			"settings":
+			{
+				"buffer_size": 3840,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/OtherLevels/Scripts/pi/randomtest.sh",
+			"settings":
+			{
+				"buffer_size": 482,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/OtherLevels/Scripts/pi/testresults.txt",
+			"settings":
+			{
+				"buffer_size": 1542,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Chris/Documents/OtherLevels/Scripts/pi/custom instructions.txt",
+			"settings":
+			{
+				"buffer_size": 4220,
+				"line_ending": "Unix",
+				"name": "sudo nano /etc/fstab"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/bws/softoptin.txt",
+			"settings":
+			{
+				"buffer_size": 3011,
+				"line_ending": "Unix",
+				"name": "<style type=\"text/css\">.test{"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/testing/ptv_just_maggs.php",
+			"settings":
+			{
+				"buffer_size": 2136,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/testing/ptv_utils.php",
+			"settings":
+			{
+				"buffer_size": 2668,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/testing/ptv_get_next_departure.php",
+			"settings":
+			{
+				"buffer_size": 866,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/testing/ptv_check_and_send.php",
+			"settings":
+			{
+				"buffer_size": 894,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/testing/do_send.php",
+			"settings":
+			{
+				"buffer_size": 1512,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Library/WebServer/Documents/ol-service-worker.js",
+			"settings":
+			{
+				"buffer_size": 4742,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 440.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Chris/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Library/WebServer/Documents/wtl/wtl.sublime-project",
+		"/Library/WebServer/Documents/testing/ptv.sublime-project",
+		"/Library/WebServer/Documents/wtl/index.html",
+		"/Library/WebServer/Documents/wtl/wtl.sublime-workspace",
+		"/Library/WebServer/Documents/wtl/ptv.sublime-project",
+		"/Library/WebServer/Documents/wtl/ptv.sublime-workspace",
+		"/Library/WebServer/Documents/testing/index.html",
+		"/Library/WebServer/Documents/testing/js/main.js",
+		"/Library/WebServer/Documents/testing/sw.js",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/TestingFilesAndSuperceded/loaddata_openVPN.sh",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/TestingFilesAndSuperceded/openvpntest.sh",
+		"/Users/Chris/Documents/OtherLevels/clients/Yarra Trams/data/_loaddata_2.sh",
+		"/Users/Chris/Documents/OtherLevels/clients/Yarra Trams/data/_loaddata_2_manual_date.sh",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/_loaddata_1.sh",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/TestingFilesAndSuperceded/test.sh",
+		"/Library/WebServer/Documents/nytimes/google.html",
+		"/Library/WebServer/Documents/mamamia/parenting.html",
+		"/Library/WebServer/Documents/womansday/celebrity.html",
+		"/Library/WebServer/Documents/bws/spirits.html",
+		"/Library/WebServer/Documents/bws/spirits2.html",
+		"/Library/WebServer/Documents/bws/spirits copy.html",
+		"/Library/WebServer/Documents/womansday/example.css",
+		"/Library/WebServer/Documents/mamamia/example.css",
+		"/Users/Chris/Downloads/test.txt",
+		"/Library/WebServer/Documents/bws/example.css",
+		"/Library/WebServer/Documents/pwa/index.html",
+		"/Library/WebServer/Documents/pwa/styles/inline.css",
+		"/Library/WebServer/Documents/pwa/scripts/app.js",
+		"/Library/WebServer/Documents/pwa/service-worker.js",
+		"/Library/WebServer/Documents/pwa/manifest.json",
+		"/Library/WebServer/Documents/manifest.json",
+		"/Library/WebServer/Documents/testing/save_gcm.php",
+		"/Users/Chris/Documents/OtherLevels/Clients/chris_devapp_devices.csv",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/devapp/1User_chris_androidNexus.csv",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/2Users_chris_bothAndroids.csv",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/1User_chris_androidSamsung.csv",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/1User_chris_iphone5s.csv",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/1User_chris_iPad.csv",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/1User_chris_iphone6s.csv",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/3Users_chris_alliOS.csv",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/PushTesting/sendpush.sh",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/1User_chris_androidNexus.csv",
+		"/Library/WebServer/Documents/testing/sw copy.js",
+		"/usr/local/Cellar/tomcat/8.0.30/libexec/webapps/testing/js/main.js",
+		"/usr/local/Cellar/tomcat/8.0.30/libexec/webapps/testing/index.html",
+		"/usr/local/Cellar/tomcat/8.0.30/libexec/webapps/testing/sw.js",
+		"/Users/Chris/Downloads/example 2/example.js",
+		"/Library/WebServer/Documents/davidjones/example.js",
+		"/Library/WebServer/Documents/ol-service-worker.js",
+		"/usr/local/Cellar/tomcat/8.0.30/libexec/webapps/testing/manifest.json",
+		"/Library/WebServer/Documents/testing/manifest.json",
+		"/Users/Chris/Documents/OtherLevels/Scripts/pi/minutes.txt",
+		"/Library/WebServer/Documents/po/example.css",
+		"/Users/Chris/Documents/OtherLevels/Clients/Tatts/Android2.10users.txt",
+		"/Library/WebServer/Documents/po/v.html",
+		"/Library/WebServer/Documents/po/vanuatu.html",
+		"/Library/WebServer/Documents/davidjones/tops.html",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/x_dbe2a9_sessions_NULLS_2016-10-24.csv000",
+		"/Users/Chris/Downloads/W_Stimulation_W2.tagprfx.ovr.seg.csv_1477020464664",
+		"/usr/local/Cellar/tomcat/8.0.30/libexec/fsqueries/coles.html",
+		"/Users/Chris/Downloads/push-notifications-master/completed/04-manifest/index.html",
+		"/Users/Chris/Downloads/push-notifications-master/completed/04-manifest/manifest.json",
+		"/Users/Chris/Downloads/push-notifications-master/completed/04-manifest/sw.js",
+		"/Users/Chris/Downloads/push-notifications-master/completed/05-subscribe/sw.js",
+		"/Users/Chris/Downloads/push-notifications-master/completed/06-notification/sw.js",
+		"/Users/Chris/Downloads/push-notifications-master/app/index.html",
+		"/Library/WebServer/Documents/testing/ptv_full_maggsSt906.php",
+		"/Library/WebServer/Documents/testing/ptv.php",
+		"/usr/local/Cellar/tomcat/8.0.30/libexec/fsqueries/ptv.php",
+		"/Library/WebServer/Documents/jetstar/results.html",
+		"/Library/WebServer/Documents/jetstar/holidays.html",
+		"/Library/WebServer/Documents/jetstar/packages.html",
+		"/Users/Chris/Desktop/hb.html",
+		"/Library/WebServer/Documents/bws/example.js",
+		"/Library/WebServer/Documents/chemistwarehouse/katy.html",
+		"/Library/WebServer/Documents/village/moviesessions.html",
+		"/Library/WebServer/Documents/po/example.js",
+		"/Users/Chris/Documents/OtherLevels/Scripts/aws/README.md",
+		"/Users/Chris/Documents/OtherLevels/Scripts/aws/loaddata_auto.sh",
+		"/Users/Chris/Documents/OtherLevels/Scripts/aws/_loaddata_2.sh",
+		"/Users/Chris/Documents/OtherLevels/Scripts/aws/_loaddata_1.sh",
+		"/Users/Chris/Documents/OtherLevels/Scripts/aws/_loaddata_2_manual_date.sh",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/loaddata.sh",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/test.sh",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/test.csv000",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/test2.csv000",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/x_dbe2a9_messages_events_report_NULLS_2016-10-24.csv000",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/x_dbe2a9_sessions_2016-10-24.csv000",
+		"/Users/Chris/Desktop/htmlEmailThatFailed_2.html",
+		"/Users/Chris/Desktop/htmlEmailThatFailed.html",
+		"/Library/WebServer/Documents/bws/example_1.7.js",
+		"/Users/Chris/Documents/OtherLevels/Scripts/pi/test.txt",
+		"/Library/WebServer/Documents/village/movieworld.html",
+		"/Library/WebServer/Documents/village/example.css",
+		"/Users/Chris/Downloads/Win_Yesterday_Push_Racing2.csv",
+		"/usr/local/Cellar/tomcat/8.0.30/libexec/fsqueries/coles_backup_early2016.html",
+		"/Users/Chris/Downloads/fbAnzEmailCountryLocaleFinal.csv",
+		"/Users/Chris/Downloads/Win_Yesterday_Push_Racing2.csv_1476753811328",
+		"/Users/Chris/Documents/OtherLevels/Scripts/pi/cronlog.log",
+		"/Users/Chris/Documents/OtherLevels/Scripts/pi/draftemail.txt",
+		"/usr/local/Cellar/tomcat/8.0.30/bin/catalina",
+		"/Users/Chris/Documents/OtherLevels/Clients/Coles/2016 Managed Services/2Users_chris_iPhone6iPad.csv",
+		"/Library/WebServer/Documents/testing/testform.html",
+		"/Library/WebServer/Documents/testing/testroute.json",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/.pgpass",
+		"/Users/Chris/Documents/OtherLevels/Clients/Yarra Trams/Data/commands.txt",
+		"/Library/WebServer/Documents/coles/index.html",
+		"/Library/WebServer/Documents/bitcasino/promotions.html",
+		"/Library/WebServer/Documents/bitcasino/example.css",
+		"/Library/WebServer/Documents/chemistwarehouse/example.css",
+		"/Library/WebServer/Documents/coles/huggies.html",
+		"/Library/WebServer/Documents/domain/result.html",
+		"/Users/Chris/Downloads/Personalised_Push_Model2.csv",
+		"/Users/Chris/Downloads/W_InactiveApp_W1.tagprfx.ovr.seg.csv_1474871225517",
+		"/Library/WebServer/Documents/domain/example.css",
+		"/Library/WebServer/Documents/bitcasino/index.html",
+		"/Library/WebServer/Documents/athletesfoot/example.css",
+		"/Library/WebServer/Documents/tw/winter.html",
+		"/Users/Chris/Documents/OtherLevels/Scripts/your-first-pwapp-master/work/index.html",
+		"/Library/WebServer/Documents/testing/specificNextDeparturesForMaggs.txt",
+		"/private/etc/apache2/httpd.conf",
+		"/private/var/log/apache2/error_log",
+		"/Library/WebServer/Documents/testing/generalNextDeparturesForMaggs.txt",
+		"/Library/WebServer/Documents/testing/stopsForLine.txt",
+		"/Library/WebServer/Documents/testing/linesByMode.txt",
+		"/Users/Chris/Downloads/AndroidManifest (1).xml",
+		"/Users/Chris/Downloads/Personalised_Push_Model.csv"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"project",
+			"open",
+			"nextTime",
+			"osascript",
+			"placement-",
+			"plaement-",
+			"href=\"./",
+			"src=\"./",
+			"href=\"/",
+			"src=\"/",
+			"src=\"//",
+			"src=\"/",
+			"src=\"//",
+			"href=\"/",
+			"src=\"/",
+			"window.",
+			"src=\"/",
+			"src=\"//",
+			"href=\"/",
+			".u1c7z2yrcg.2.0.2.0\"",
+			"side-menu__push",
+			"href=\"/",
+			"src=\"/",
+			"src=\"//",
+			"placement-e",
+			"getforecast",
+			"getForecast",
+			"updateForecastCard",
+			"getForecast",
+			"filesToCache",
+			"getForecast",
+			"app.getforecast",
+			"app.getforecase",
+			"initialWeatherForecast",
+			"'/",
+			"saveSelectedCities",
+			"getForecast",
+			"toggleAddDialog",
+			".get",
+			"upgradeCallback",
+			"updateForecastCard",
+			"url(\"/images",
+			"/",
+			"url(/",
+			"/",
+			"subscribeButton",
+			"noip",
+			"	});",
+			"showNotification",
+			"alert",
+			"pushManager",
+			"getIdb",
+			"showPushMessage",
+			"showNotification",
+			"subscribeButton",
+			"button",
+			"setUpBrowserPush",
+			"gcm_sender_id",
+			"subscri",
+			"subscribe",
+			"endpoint",
+			"subscri",
+			"subscribe",
+			"jquery",
+			"src=\"/",
+			"src=\"//",
+			"href=\"/",
+			"jspcontainer",
+			"<div class=\"jspTrack\" style=\"height: 160p",
+			"href=\"/",
+			"href=\"//",
+			"src=\"/",
+			"src=\"//",
+			"navigator",
+			"'servicework",
+			"date",
+			"healthcheckurl",
+			"/>\"\n",
+			"linesByModeUrl",
+			"nearmeurl",
+			"generalurl",
+			"stopsurl",
+			"camer in the corner",
+			"list_inter",
+			"event_type",
+			"queryOct1731iOS1_2150sessions",
+			"Android2",
+			"Android1",
+			"Android210",
+			"queryOct1731Android1",
+			"Android",
+			"{\"range\":{\"' + oneMonthAgo + '\":{\"gt\":1475011927951}}}",
+			"Android210",
+			"query30days30InstallAndroid1",
+			"Android",
+			"query30daysAndroid1",
+			"Android",
+			"query30daysAndroid",
+			"Android",
+			"Oct1731Android1",
+			"Android1",
+			"6BAB6B442329",
+			"noip",
+			"/-/media/b2c/ships/aria/badge.png?la=en&hash=2650418938D49618B31C12F068ABB0596C287C33",
+			"alt=\"A\"",
+			"src=\"/",
+			"<img alt=\"A",
+			"media print",
+			"jquery-",
+			"otherlevels",
+			"jquery",
+			"href=\"/",
+			"href=\"//",
+			"src=\"/",
+			"src=\"//",
+			"swit",
+			"switch",
+			"session",
+			"otherlevels",
+			"trackingid",
+			"bricknet",
+			"{",
+			"MONDAYTHISWEEK",
+			"ol-",
+			"sessions",
+			"phash",
+			"x_dbe2a9_phash_NOBACKSLASHES_$MONDAYTHISWEEK_DATEONLY.csv000",
+			"gnd-corner-image"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"href=\"",
+			"src=\"",
+			"src=\"https://bws.com.au/",
+			"src=\"https://",
+			"href=\"https://bws.com.au/",
+			"src=\"https://bws.com.au/",
+			"src=\"http://",
+			"href=\"https://bws.com.au/",
+			"href=\"http://www.womansday.com.au/",
+			"src=\"http://www.womansday.com.au/",
+			"src=\"http://",
+			"'/pwa/",
+			"url(\"/pwa/images",
+			"src=\"http://shop.davidjones.com.au/",
+			"src=\"http://",
+			"href=\"http://shop.davidjones.com.au/",
+			"href=\"http://",
+			"src=\"http://shop.davidjones.com.au/",
+			"src=\"http://",
+			"iOS2",
+			"iOS1",
+			"iOS210",
+			"queryOct1731iOS1",
+			"query30days30InstalliOS210",
+			"query30days30InstalliOS1",
+			"query30days30InstallAndroid210",
+			"query30days30InstallAndroid1",
+			"query30daysiOS210",
+			"query30daysiOS1",
+			"query30daysAndroid210",
+			"query30daysAndroid1",
+			"iOS",
+			"{\"range\":{\"LastOpened\":{\"gt\":' + oneMonthAgo + '}}}",
+			"iOS210",
+			"query30days30InstallAndroid210",
+			"iOS",
+			"query30daysAndroid210",
+			"iOS",
+			"query30days30InstallAndroid",
+			"iOS",
+			"Oct1731Android210",
+			"30days30InstalliOS210",
+			"30days30InstalliOS1",
+			"30days30InstallAndroid210",
+			"30days30InstallAndroid1",
+			"30daysiOS210",
+			"30daysiOS1",
+			"30daysiOS210",
+			"30daysAndroid210",
+			"30daysAndroid1",
+			"iOS210",
+			"iOS1",
+			"Android210",
+			"href=\"http://www.pocruises.com.au/",
+			"href=\"http://",
+			"src=\"http://www.pocruises.com.au/",
+			"src=\"http://",
+			"srcset=\"http://www.jetstar.com/",
+			"'http://www.jetstar.com/",
+			"href=\"http://www.jetstar.com/",
+			"href=\"http://",
+			"href=\"http://www.jetstar.com/",
+			"src=\"http://www.jetstar.com/",
+			"src=\"http://",
+			"src=\"/jetstar/",
+			"src=\"",
+			"http://www.jetstar.com/",
+			"src=\"http://www.jetstar.com.au/",
+			"src=\"http://",
+			"href=\"http://www.jetstar.com.au/",
+			"href=\"http://",
+			"'",
+			"-",
+			"background-image: url(http://www.movieworld.com.au/resources/",
+			"src=\"http://www.movieworld.com.au/",
+			"src=\"http://",
+			"href=\"http://www.movieworld.com.au/",
+			"href=\"http://www.villagecinemas.com.au/",
+			"src=\"http://www.villagecinemas.com.au/",
+			"src=\"http://",
+			"olTitleText",
+			"href=\"http://www.villagecinemas.com.au/",
+			"src=\"http://www.villagecinemas.com.au/",
+			"src=\"http://",
+			"src=\"http://www.bws.com.au/",
+			"href=\"http://www.bws.com.au/",
+			"src=\"http://www.bws.com.au/",
+			"query30daysAndroid210",
+			"query30daysiOS210",
+			"query30days30InstallAndroid210",
+			"query30days30InstalliOS210",
+			"{\"range\":{\"ControlGroup\":{\"gte\":2}}},{\"range\":{\"ControlGroup\":{\"lte\":10}}}",
+			"query30days30InstalliOS210",
+			"query30daysiOS210",
+			"query30daysAndroid210",
+			"queryOct1731iOS210",
+			"queryOct1731Android210",
+			"query30days30InstallAndroid210",
+			"<td>2-10</td>",
+			"query30days30InstalliOS210",
+			"query30days30InstallAndroid210",
+			"query30daysiOS210",
+			"query30daysAndroid210",
+			"queryOct1731iOS210",
+			"queryOct1731Android210",
+			"1477958400000",
+			"1476662400000",
+			"queryOct1731",
+			"Installed 17-31Oct",
+			"\"",
+			"",
+			"\"",
+			"'",
+			"src=\"http://www.chemistwarehouse.com.au/",
+			"src=\"http://",
+			"href=\"http://www.chemistwarehouse.com.au/",
+			"href=\"http://",
+			"href=\"http://www.hits973.com/",
+			"href=\"sf_files",
+			"src=\"sf_files",
+			"src=\"http://www.nytimes.com/",
+			"src=\"http://",
+			"href=\"http://",
+			"href=\"http://www.nytimes.com/",
+			"href=\"http://",
+			"href=\"richinbox",
+			"src=\"richinbox",
+			"src=\"https://www.flightcentre.com.au/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 18,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/Chris/Documents/otherlevels/Clients/Tatts/PushTesting/sendpush.sh",
+					"settings":
+					{
+						"buffer_size": 170,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								73,
+								73
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 13.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/Chris/Documents/otherlevels/Clients/Tatts/PushTesting/pushbody",
+					"settings":
+					{
+						"buffer_size": 240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								98,
+								238
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/Chris/Documents/OtherLevels/Clients/Coles/PushTesting/pushbody",
+					"settings":
+					{
+						"buffer_size": 211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								209,
+								209
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/Chris/Documents/OtherLevels/Clients/Coles/PushTesting/sendpush.sh",
+					"settings":
+					{
+						"buffer_size": 170,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/Chris/Dropbox/Accounts/Australia Clients: Prospects/Tatts/ExampleOfDataExport.csv",
+					"settings":
+					{
+						"buffer_size": 341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Library/WebServer/Documents/coles/test.html",
+					"settings":
+					{
+						"buffer_size": 3004,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								3004
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<style type=\"text/css\">.test{",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Library/WebServer/Documents/arn/kiis.html",
+					"settings":
+					{
+						"buffer_size": 177779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								177544,
+								177634
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 38242.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/Chris/Documents/OtherLevels/Clients/Tatts/SendAndAnalyze_FileImport_PoC/automatic_test_file.csv",
+					"settings":
+					{
+						"buffer_size": 879,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/Chris/Documents/OtherLevels/ol_campaigns-query.txt",
+					"settings":
+					{
+						"buffer_size": 11639,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11563,
+								11563
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 991.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/Chris/Documents/OtherLevels/clients/Yarra Trams/data/loaddata_auto.sh",
+					"settings":
+					{
+						"buffer_size": 3840,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1729,
+								1729
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 402.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/Users/Chris/Documents/OtherLevels/Scripts/pi/randomtest.sh",
+					"settings":
+					{
+						"buffer_size": 482,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								242
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/Users/Chris/Documents/OtherLevels/Scripts/pi/testresults.txt",
+					"settings":
+					{
+						"buffer_size": 1542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/Users/Chris/Documents/OtherLevels/Scripts/pi/custom instructions.txt",
+					"settings":
+					{
+						"buffer_size": 4220,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3844,
+								3767
+							]
+						],
+						"settings":
+						{
+							"auto_name": "sudo nano /etc/fstab",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1047.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/Library/WebServer/Documents/bws/softoptin.txt",
+					"settings":
+					{
+						"buffer_size": 3011,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								3011
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<style type=\"text/css\">.test{",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1872.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/Library/WebServer/Documents/testing/ptv_just_maggs.php",
+					"settings":
+					{
+						"buffer_size": 2136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2130,
+								2130
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 410.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/Library/WebServer/Documents/testing/ptv_utils.php",
+					"settings":
+					{
+						"buffer_size": 2668,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2283,
+								2283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 254.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/Library/WebServer/Documents/testing/ptv_get_next_departure.php",
+					"settings":
+					{
+						"buffer_size": 866,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								735,
+								735
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "/Library/WebServer/Documents/testing/ptv_check_and_send.php",
+					"settings":
+					{
+						"buffer_size": 894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								757,
+								757
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "/Library/WebServer/Documents/testing/do_send.php",
+					"settings":
+					{
+						"buffer_size": 1512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								448,
+								448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "/Library/WebServer/Documents/ol-service-worker.js",
+					"settings":
+					{
+						"buffer_size": 4742,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4608,
+								4612
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/Chris/Documents/OtherLevels/ol_campaigns-query.txt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 255.0,
+	"status_bar_visible": true
+}

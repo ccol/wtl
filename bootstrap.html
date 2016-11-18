@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--online resources-->
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+    <!--offline resources-->
+    <link rel="stylesheet" href="offline/bootstrap.css">
+    <script src="offline/jquery-3.1.1.js"></script>
+    <script src="offline/bootstrap.js"></script>
+    <link rel="stylesheet" href="styles/wtl.css">
+  </head>
+  <body>
+    <div class="container" hidden>
+      <div class="jumbotron">
+        <h1>When To Leave</h1> 
+        <p>You're working away - you're busy. Having to check transport timetables and then constantly keep an eye 
+          on the clock of when it's time to leave is too much of a distraction. Be notified when it's time to leave.</p> 
+      </div>
+      <div class="page-header">
+        <h1>When To Leave</h1>
+      </div>
+
+      <div class="input-selection mode">
+        <label for="modes">Select transport type:</label>
+        <select class="form-control" id="modes">
+          <option value=""><option>
+          <option value="2">Bus</option>
+          <option value="0">Train</option>
+          <option value="1">Tram</option>
+        </select>
+      </div>
+
+      <div class="input-selection linesSelection"></div>
+
+      <div class="input-selection stopsSelection"></div>
+
+      <div class="input-selection timesSelection"></div>
+
+      <!-- rows and columns -->
+      <div class="row">
+        <div class="col-sm-4 lightblue">.col-sm-4</div>
+        <div class="col-sm-4 gray">.col-sm-4</div>
+        <div class="col-sm-4 lightgreen">.col-sm-4</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 lightblue">.col-sm-4</div>
+        <div class="col-sm-4 gray">.col-sm-4</div>
+        <div class="col-sm-4 lightgreen">.col-sm-4</div>
+      </div>
+
+      <!-- alerts -->
+      <div id="alertSection">
+        <div class="alert alert-success fade in" hidden>
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
+
+        <div class="alert alert-info" hidden>
+          <strong>Info!</strong> Indicates a neutral informative change or action.
+        </div>
+
+        <div class="alert alert-warning" hidden>
+          <strong>Warning!</strong> Indicates a warning that might need attention.
+        </div>
+
+        <div class="alert alert-danger" hidden>
+          <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+        </div>
+      </div>
+
+      <!-- dropdown -->
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li class="divider"></li>
+          <li class="disabled"><a href="#">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="well">Basic Well</div>
+
+      <button type="button" class="btn btn-default">Default</button>
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-link">Link</button>
+
+      <div class="well">Basic Well</div>
+
+      <div class="page-footer">
+        <p>Test footer</p>
+      </div>
+    </div>
+
+    <div class="loader">
+      <svg viewBox="0 0 32 32" width="32" height="32">
+        <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+      </svg>
+    </div>
+    <script type="text/javascript">
+
+document.querySelector('.container').removeAttribute('hidden');
+document.querySelector('.loader').setAttribute('hidden', true);
+        
+      function getLines(mode) {
+        var url = 'get_lines.php?mode=' + mode;
+        // TODO add cache logic here
+        /*if ('caches' in window) {
+          //Check if the service worker has already cached this city's weather data. If the service worker has the data, then display the cached data while the app fetches the latest data.
+           
+          caches.match(url).then(function(response) {
+            if (response) {
+              response.json().then(function updateFromCache(json) {
+                var results = json.query.results;
+                results.key = key;
+                results.label = label;
+                results.created = json.query.created;
+                app.updateForecastCard(results);
+              });
+            }
+          });
+        }*/
+
+        // Fetch the latest data.
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+          if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+              console.log('Data was available, getting latest');
+              var response = JSON.parse(request.response);
+              console.log(response);
+              //var results = response.query.results;
+              //do something with the results - update the select
+              //app.updateForecastCard(results);
+            }
+          } else {
+            // Return the initial weather forecast since no data is available.
+            console.log('No data available, returning initial');
+            //do something if fails...not this:
+            //app.updateForecastCard(initialWeatherForecast);
+          }
+        };
+        request.open('GET', url);
+        request.send();
+      };
+
+      //global variable, available inside all functions
+      var modes = document.getElementById('modes');
+
+      modes.addEventListener("change", function() {
+        console.log(modes.value);
+
+        //hide the 'stops' dropdown if it exists
+        if(document.getElementById('stops')){
+          document.getElementById('stops').setAttribute('hidden', true);
+        }
+        //hide the 'times' div if it exists
+        if(document.getElementById('times')){
+          document.getElementById('times').setAttribute('hidden', true);
+        }
+        
+        
+
+        //getLines(modes.value);
+        var url = 'get_lines.php?mode=' + modes.value;
+        //TODO: fetch to be replaced by function above once caches and service worker is set up
+        fetch(url)
+        .then(function(response){
+          return response.json().then(function(data){
+            console.log(data);
+
+            if(data.error_message){
+              console.log('error message json value: ' + data.error_message);
+              showError(data.error_message);
+            }else{
+              //sort in alphabetical order
+              data = sortByKey(data, 'line_name');
+
+              //Create and append select list, but check if exists first
+              var selectList;
+              if(document.getElementById('lines')){
+                selectList = document.getElementById('lines');
+                selectList.removeAttribute('hidden');
+                clearSelect(selectList);
+              }else{
+                var linesDiv = document.querySelector(".linesSelection");
+                var labelFor = document.createElement("label");
+                labelFor.htmlFor = "lines";
+                labelFor.innerHTML = "Select line";
+                linesDiv.appendChild(labelFor);
+                selectList = document.createElement("select");
+                selectList.id = "lines";
+                selectList.className = "form-control";
+                selectList.onchange = function(){getStops(this)};
+                linesDiv.appendChild(selectList);
+              }
+
+
+              //Create and append the options
+              for (var i = 0; i < data.length; i++) {
+                var option = document.createElement("option");
+                option.value = data[i].line_id;
+                option.text = data[i].line_name;
+                selectList.appendChild(option);
+              }
+            }
+          });
+        });
+      });
+
+      function getStops(obj){
+        console.log('obj.value is: ' + obj.value);
+        var url = 'get_stops.php?mode=' + modes.value + '&line=' + obj.value;
+        //TODO: fetch to be replaced by function above once caches and service worker is set up
+        fetch(url)
+        .then(function(response){
+          return response.json().then(function(data){
+            console.log(data);
+            if(data.error_message){
+              console.log('error message json value: ' + data.error_message);
+              showError(data.error_message);
+            }else{
+              //sort in alphabetical order
+              data = sortByKey(data, 'line_name');
+              
+
+              //Create and append select list, but check if exists first
+              var selectList;
+              if(document.getElementById('stops')){
+                selectList = document.getElementById('stops');
+                selectList.removeAttribute('hidden');
+                clearSelect(selectList);
+              }else{
+                var stopsDiv = document.querySelector(".stopsSelection");
+                var labelFor = document.createElement("label");
+                labelFor.htmlFor = "stops";
+                labelFor.innerHTML = "Select stop";
+                stopsDiv.appendChild(labelFor);
+                selectList = document.createElement("select");
+                selectList.id = "stops";
+                selectList.className = "form-control";
+                selectList.onchange = function(){loadTimes();};
+                stopsDiv.appendChild(selectList);  
+              }
+              
+
+              //Create and append the options
+              for (var i = 0; i < data.length; i++) {
+                var option = document.createElement("option");
+                option.value = data[i].stop_id;
+                option.text = data[i].location_name;
+                selectList.appendChild(option);
+              }
+            }
+          });
+        });
+      }
+
+      function loadTimes(){
+        var selectList;
+        if(document.getElementById('times')){
+          selectList = document.getElementById('times');
+          selectList.removeAttribute('hidden');
+          clearSelect(selectList);
+        }else{
+          var stopsDiv = document.querySelector(".timesSelection");
+          selectList = document.createElement("select");
+          selectList.id = "stops";
+          selectList.onchange = function(){loadTimes();};
+          stopsDiv.appendChild(selectList);  
+        }
+      }
+
+      function showError(errorMessage){
+        var alertDanger = document.querySelector('.alert-danger');
+        if(alertDanger){
+          alertDanger.removeAttribute('hidden');  
+          alertDanger.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Error occurred: </strong>' + errorMessage;
+        }else{
+          var alertDanger = document.createElement("div");
+          alertDanger.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Error occurred: </strong>' + errorMessage;
+          document.getElementById("alertSection").appendChild(alertDanger);
+        }
+        
+      }
+
+      function clearSelect(selectName){
+        //var list = document.getElementById(selectName);
+        while (selectName.options.length) {
+          selectName.remove(0);
+        }
+      }
+
+/*$("#non-dynamic-ancestor-of-message").on("click", "#message", function() {
+    console.log("clicked");
+});*/
+/*
+
+      var lines = document.getElementById('lines');
+      lines.addEventListener("change", function() {
+        console.log(modes.value);
+        //getLines(modes.value);
+        var url = 'get_lines.php?mode=' + modes.value;
+        //TODO: fetch to be replaced by function above once caches and service worker is set up
+        fetch(url)
+        .then(function(response){
+          return response.json().then(function(data){
+            console.log(data);
+            //sort in alphabetical order
+            data = sortByKey(data, 'line_name');
+            
+
+            //Create and append select list
+            var linesDiv = document.querySelector(".linesSelection");
+            var selectList = document.createElement("select");
+            selectList.id = "lines";
+            linesDiv.appendChild(selectList);
+
+            //Create and append the options
+            for (var i = 0; i < data.length; i++) {
+              var option = document.createElement("option");
+              option.value = data[i].line_id;
+              option.text = data[i].line_name;
+              selectList.appendChild(option);
+            }
+
+
+
+          });
+        });
+
+      });
+
+*/
+
+      function sortByKey(array, key) {
+          return array.sort(function(a, b) {
+              var x = a[key]; var y = b[key];
+              return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+          });
+      }
+    </script>
+
+    <!--script src="scripts/app.js" async></script-->
+
+  </body>
+</html>
