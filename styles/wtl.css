@@ -14,12 +14,20 @@ h1 {
 }
 .input-selection{
   padding-bottom: 9px;
-  margin: 40px 0 20px;
-  margin-top: 40px;
-  margin-right: 0px;
+  margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 0px;
   /*border-bottom: 1px solid #eee;*/
+}
+.wtlInputForm{
+  font-size: 1.2em;
+}
+
+/*overwrite bootstrap.css*/
+.form-time{
+  font-size: 0.8em;
+  /*display: inline;
+  width: 70px;*/
+  width: auto;
 }
 
 /* Spinner */
