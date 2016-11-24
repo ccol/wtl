@@ -25,7 +25,7 @@
       </div>
       <form class="wtlInputForm">
         <div class="form-group input-selection mode">
-          <label for="modes">Select transport type:</label>
+          <label for="modes">Select transport mode:</label>
           <select class="form-control" id="modes">
             <option selected disabled value="">--select mode of transportation--</option>
             <option value="2">Bus</option>
@@ -38,212 +38,31 @@
 
         <div class="form-group input-selection stopsSelection"></div>
 
-        <div class="form-inline timesSelection">
-          <label for="morningStartTime">Morning Start Time:</label>
-          <select class="form-control form-time" id="morningStartTime" onchange="setEndTime(this);">
-            <option selected disabled value="">select time</option>
-            <option value="0:00:00">12:00 AM</option>
-            <option value="0:15:00">12:15 AM</option>
-            <option value="0:30:00">12:30 AM</option>
-            <option value="0:45:00">12:45 AM</option>
-            <option value="1:00:00">1:00 AM</option>
-            <option value="1:15:00">1:15 AM</option>
-            <option value="1:30:00">1:30 AM</option>
-            <option value="1:45:00">1:45 AM</option>
-            <option value="2:00:00">2:00 AM</option>
-            <option value="2:15:00">2:15 AM</option>
-            <option value="2:30:00">2:30 AM</option>
-            <option value="2:45:00">2:45 AM</option>
-            <option value="3:00:00">3:00 AM</option>
-            <option value="3:15:00">3:15 AM</option>
-            <option value="3:30:00">3:30 AM</option>
-            <option value="3:45:00">3:45 AM</option>
-            <option value="4:00:00">4:00 AM</option>
-            <option value="4:15:00">4:15 AM</option>
-            <option value="4:30:00">4:30 AM</option>
-            <option value="4:45:00">4:45 AM</option>
-            <option value="5:00:00">5:00 AM</option>
-            <option value="5:15:00">5:15 AM</option>
-            <option value="5:30:00">5:30 AM</option>
-            <option value="5:45:00">5:45 AM</option>
-            <option value="6:00:00">6:00 AM</option>
-            <option value="6:15:00">6:15 AM</option>
-            <option value="6:30:00">6:30 AM</option>
-            <option value="6:45:00">6:45 AM</option>
-            <option value="7:00:00">7:00 AM</option>
-            <option value="7:15:00">7:15 AM</option>
-            <option value="7:30:00">7:30 AM</option>
-            <option value="7:45:00">7:45 AM</option>
-            <option value="8:00:00">8:00 AM</option>
-            <option value="8:15:00">8:15 AM</option>
-            <option value="8:30:00">8:30 AM</option>
-            <option value="8:45:00">8:45 AM</option>
-            <option value="9:00:00">9:00 AM</option>
-            <option value="9:15:00">9:15 AM</option>
-            <option value="9:30:00">9:30 AM</option>
-            <option value="9:45:00">9:45 AM</option>
-            <option value="10:00:00">10:00 AM</option>
-            <option value="10:15:00">10:15 AM</option>
-            <option value="10:30:00">10:30 AM</option>
-            <option value="10:45:00">10:45 AM</option>
-            <option value="11:00:00">11:00 AM</option>
-            <option value="11:15:00">11:15 AM</option>
-            <option value="11:30:00">11:30 AM</option>
-            <option value="11:45:00">11:45 AM</option>
-            <option value="12:00:00">12:00 PM</option>
-            <option value="12:15:00">12:15 PM</option>
-            <option value="12:30:00">12:30 PM</option>
-            <option value="12:45:00">12:45 PM</option>
-            <option value="13:00:00">1:00 PM</option>
-            <option value="13:15:00">1:15 PM</option>
-            <option value="13:30:00">1:30 PM</option>
-            <option value="13:45:00">1:45 PM</option>
-            <option value="14:00:00">2:00 PM</option>
-            <option value="14:15:00">2:15 PM</option>
-            <option value="14:30:00">2:30 PM</option>
-            <option value="14:45:00">2:45 PM</option>
-            <option value="15:00:00">3:00 PM</option>
-            <option value="15:15:00">3:15 PM</option>
-            <option value="15:30:00">3:30 PM</option>
-            <option value="15:45:00">3:45 PM</option>
-            <option value="16:00:00">4:00 PM</option>
-            <option value="16:15:00">4:15 PM</option>
-            <option value="16:30:00">4:30 PM</option>
-            <option value="16:45:00">4:45 PM</option>
-            <option value="17:00:00">5:00 PM</option>
-            <option value="17:15:00">5:15 PM</option>
-            <option value="17:30:00">5:30 PM</option>
-            <option value="17:45:00">5:45 PM</option>
-            <option value="18:00:00">6:00 PM</option>
-            <option value="18:15:00">6:15 PM</option>
-            <option value="18:30:00">6:30 PM</option>
-            <option value="18:45:00">6:45 PM</option>
-            <option value="19:00:00">7:00 PM</option>
-            <option value="19:15:00">7:15 PM</option>
-            <option value="19:30:00">7:30 PM</option>
-            <option value="19:45:00">7:45 PM</option>
-            <option value="20:00:00">8:00 PM</option>
-            <option value="20:15:00">8:15 PM</option>
-            <option value="20:30:00">8:30 PM</option>
-            <option value="20:45:00">8:45 PM</option>
-            <option value="21:00:00">9:00 PM</option>
-            <option value="21:15:00">9:15 PM</option>
-            <option value="21:30:00">9:30 PM</option>
-            <option value="21:45:00">9:45 PM</option>
-            <option value="22:00:00">10:00 PM</option>
-            <option value="22:15:00">10:15 PM</option>
-            <option value="22:30:00">10:30 PM</option>
-            <option value="22:45:00">10:45 PM</option>
-            <option value="23:00:00">11:00 PM</option>
-            <option value="23:15:00">11:15 PM</option>
-            <option value="23:30:00">11:30 PM</option>
-            <option value="23:45:00">11:45 PM</option>
-          </select>
+        <div id="times-div">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-inline timesSelection">
+                <label for="startTime">Start Time:</label>
+                <select class="form-control form-time" id="startTime" onchange="setEndTime(this);">
+                  <option selected disabled value="">select time</option><option value="0:00:00">12:00 AM</option><option value="0:15:00">12:15 AM</option><option value="0:30:00">12:30 AM</option><option value="0:45:00">12:45 AM</option><option value="1:00:00">1:00 AM</option><option value="1:15:00">1:15 AM</option><option value="1:30:00">1:30 AM</option><option value="1:45:00">1:45 AM</option><option value="2:00:00">2:00 AM</option><option value="2:15:00">2:15 AM</option><option value="2:30:00">2:30 AM</option><option value="2:45:00">2:45 AM</option><option value="3:00:00">3:00 AM</option><option value="3:15:00">3:15 AM</option><option value="3:30:00">3:30 AM</option><option value="3:45:00">3:45 AM</option><option value="4:00:00">4:00 AM</option><option value="4:15:00">4:15 AM</option><option value="4:30:00">4:30 AM</option><option value="4:45:00">4:45 AM</option><option value="5:00:00">5:00 AM</option><option value="5:15:00">5:15 AM</option><option value="5:30:00">5:30 AM</option><option value="5:45:00">5:45 AM</option><option value="6:00:00">6:00 AM</option><option value="6:15:00">6:15 AM</option><option value="6:30:00">6:30 AM</option><option value="6:45:00">6:45 AM</option><option value="7:00:00">7:00 AM</option><option value="7:15:00">7:15 AM</option><option value="7:30:00">7:30 AM</option><option value="7:45:00">7:45 AM</option><option value="8:00:00">8:00 AM</option><option value="8:15:00">8:15 AM</option><option value="8:30:00">8:30 AM</option><option value="8:45:00">8:45 AM</option><option value="9:00:00">9:00 AM</option><option value="9:15:00">9:15 AM</option><option value="9:30:00">9:30 AM</option><option value="9:45:00">9:45 AM</option><option value="10:00:00">10:00 AM</option><option value="10:15:00">10:15 AM</option><option value="10:30:00">10:30 AM</option><option value="10:45:00">10:45 AM</option><option value="11:00:00">11:00 AM</option><option value="11:15:00">11:15 AM</option><option value="11:30:00">11:30 AM</option><option value="11:45:00">11:45 AM</option><option value="12:00:00">12:00 PM</option><option value="12:15:00">12:15 PM</option><option value="12:30:00">12:30 PM</option><option value="12:45:00">12:45 PM</option><option value="13:00:00">1:00 PM</option><option value="13:15:00">1:15 PM</option><option value="13:30:00">1:30 PM</option><option value="13:45:00">1:45 PM</option><option value="14:00:00">2:00 PM</option><option value="14:15:00">2:15 PM</option><option value="14:30:00">2:30 PM</option><option value="14:45:00">2:45 PM</option><option value="15:00:00">3:00 PM</option><option value="15:15:00">3:15 PM</option><option value="15:30:00">3:30 PM</option><option value="15:45:00">3:45 PM</option><option value="16:00:00">4:00 PM</option><option value="16:15:00">4:15 PM</option><option value="16:30:00">4:30 PM</option><option value="16:45:00">4:45 PM</option><option value="17:00:00">5:00 PM</option><option value="17:15:00">5:15 PM</option><option value="17:30:00">5:30 PM</option><option value="17:45:00">5:45 PM</option><option value="18:00:00">6:00 PM</option><option value="18:15:00">6:15 PM</option><option value="18:30:00">6:30 PM</option><option value="18:45:00">6:45 PM</option><option value="19:00:00">7:00 PM</option><option value="19:15:00">7:15 PM</option><option value="19:30:00">7:30 PM</option><option value="19:45:00">7:45 PM</option><option value="20:00:00">8:00 PM</option><option value="20:15:00">8:15 PM</option><option value="20:30:00">8:30 PM</option><option value="20:45:00">8:45 PM</option><option value="21:00:00">9:00 PM</option><option value="21:15:00">9:15 PM</option><option value="21:30:00">9:30 PM</option><option value="21:45:00">9:45 PM</option><option value="22:00:00">10:00 PM</option><option value="22:15:00">10:15 PM</option><option value="22:30:00">10:30 PM</option><option value="22:45:00">10:45 PM</option><option value="23:00:00">11:00 PM</option><option value="23:15:00">11:15 PM</option><option value="23:30:00">11:30 PM</option><option value="23:45:00">11:45 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-inline timesSelection">
+                <label for="endTime">End Time:</label>
+                <select class="form-control form-time" id="endTime">
+                  <option selected disabled value="">select time</option><option value="0:00:00">12:00 AM</option><option value="0:15:00">12:15 AM</option><option value="0:30:00">12:30 AM</option><option value="0:45:00">12:45 AM</option><option value="1:00:00">1:00 AM</option><option value="1:15:00">1:15 AM</option><option value="1:30:00">1:30 AM</option><option value="1:45:00">1:45 AM</option><option value="2:00:00">2:00 AM</option><option value="2:15:00">2:15 AM</option><option value="2:30:00">2:30 AM</option><option value="2:45:00">2:45 AM</option><option value="3:00:00">3:00 AM</option><option value="3:15:00">3:15 AM</option><option value="3:30:00">3:30 AM</option><option value="3:45:00">3:45 AM</option><option value="4:00:00">4:00 AM</option><option value="4:15:00">4:15 AM</option><option value="4:30:00">4:30 AM</option><option value="4:45:00">4:45 AM</option><option value="5:00:00">5:00 AM</option><option value="5:15:00">5:15 AM</option><option value="5:30:00">5:30 AM</option><option value="5:45:00">5:45 AM</option><option value="6:00:00">6:00 AM</option><option value="6:15:00">6:15 AM</option><option value="6:30:00">6:30 AM</option><option value="6:45:00">6:45 AM</option><option value="7:00:00">7:00 AM</option><option value="7:15:00">7:15 AM</option><option value="7:30:00">7:30 AM</option><option value="7:45:00">7:45 AM</option><option value="8:00:00">8:00 AM</option><option value="8:15:00">8:15 AM</option><option value="8:30:00">8:30 AM</option><option value="8:45:00">8:45 AM</option><option value="9:00:00">9:00 AM</option><option value="9:15:00">9:15 AM</option><option value="9:30:00">9:30 AM</option><option value="9:45:00">9:45 AM</option><option value="10:00:00">10:00 AM</option><option value="10:15:00">10:15 AM</option><option value="10:30:00">10:30 AM</option><option value="10:45:00">10:45 AM</option><option value="11:00:00">11:00 AM</option><option value="11:15:00">11:15 AM</option><option value="11:30:00">11:30 AM</option><option value="11:45:00">11:45 AM</option><option value="12:00:00">12:00 PM</option><option value="12:15:00">12:15 PM</option><option value="12:30:00">12:30 PM</option><option value="12:45:00">12:45 PM</option><option value="13:00:00">1:00 PM</option><option value="13:15:00">1:15 PM</option><option value="13:30:00">1:30 PM</option><option value="13:45:00">1:45 PM</option><option value="14:00:00">2:00 PM</option><option value="14:15:00">2:15 PM</option><option value="14:30:00">2:30 PM</option><option value="14:45:00">2:45 PM</option><option value="15:00:00">3:00 PM</option><option value="15:15:00">3:15 PM</option><option value="15:30:00">3:30 PM</option><option value="15:45:00">3:45 PM</option><option value="16:00:00">4:00 PM</option><option value="16:15:00">4:15 PM</option><option value="16:30:00">4:30 PM</option><option value="16:45:00">4:45 PM</option><option value="17:00:00">5:00 PM</option><option value="17:15:00">5:15 PM</option><option value="17:30:00">5:30 PM</option><option value="17:45:00">5:45 PM</option><option value="18:00:00">6:00 PM</option><option value="18:15:00">6:15 PM</option><option value="18:30:00">6:30 PM</option><option value="18:45:00">6:45 PM</option><option value="19:00:00">7:00 PM</option><option value="19:15:00">7:15 PM</option><option value="19:30:00">7:30 PM</option><option value="19:45:00">7:45 PM</option><option value="20:00:00">8:00 PM</option><option value="20:15:00">8:15 PM</option><option value="20:30:00">8:30 PM</option><option value="20:45:00">8:45 PM</option><option value="21:00:00">9:00 PM</option><option value="21:15:00">9:15 PM</option><option value="21:30:00">9:30 PM</option><option value="21:45:00">9:45 PM</option><option value="22:00:00">10:00 PM</option><option value="22:15:00">10:15 PM</option><option value="22:30:00">10:30 PM</option><option value="22:45:00">10:45 PM</option><option value="23:00:00">11:00 PM</option><option value="23:15:00">11:15 PM</option><option value="23:30:00">11:30 PM</option><option value="23:45:00">11:45 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+          </div>
         </div>
-
-        <div class="form-inline timesSelection">
-          <label for="morningEndTime">Morning End Time:</label>
-          <select class="form-control form-time" id="morningEndTime">
-            <option selected disabled value="">select time</option>
-            <option value="0:00:00">12:00 AM</option>
-            <option value="0:15:00">12:15 AM</option>
-            <option value="0:30:00">12:30 AM</option>
-            <option value="0:45:00">12:45 AM</option>
-            <option value="1:00:00">1:00 AM</option>
-            <option value="1:15:00">1:15 AM</option>
-            <option value="1:30:00">1:30 AM</option>
-            <option value="1:45:00">1:45 AM</option>
-            <option value="2:00:00">2:00 AM</option>
-            <option value="2:15:00">2:15 AM</option>
-            <option value="2:30:00">2:30 AM</option>
-            <option value="2:45:00">2:45 AM</option>
-            <option value="3:00:00">3:00 AM</option>
-            <option value="3:15:00">3:15 AM</option>
-            <option value="3:30:00">3:30 AM</option>
-            <option value="3:45:00">3:45 AM</option>
-            <option value="4:00:00">4:00 AM</option>
-            <option value="4:15:00">4:15 AM</option>
-            <option value="4:30:00">4:30 AM</option>
-            <option value="4:45:00">4:45 AM</option>
-            <option value="5:00:00">5:00 AM</option>
-            <option value="5:15:00">5:15 AM</option>
-            <option value="5:30:00">5:30 AM</option>
-            <option value="5:45:00">5:45 AM</option>
-            <option value="6:00:00">6:00 AM</option>
-            <option value="6:15:00">6:15 AM</option>
-            <option value="6:30:00">6:30 AM</option>
-            <option value="6:45:00">6:45 AM</option>
-            <option value="7:00:00">7:00 AM</option>
-            <option value="7:15:00">7:15 AM</option>
-            <option value="7:30:00">7:30 AM</option>
-            <option value="7:45:00">7:45 AM</option>
-            <option value="8:00:00">8:00 AM</option>
-            <option value="8:15:00">8:15 AM</option>
-            <option value="8:30:00">8:30 AM</option>
-            <option value="8:45:00">8:45 AM</option>
-            <option value="9:00:00">9:00 AM</option>
-            <option value="9:15:00">9:15 AM</option>
-            <option value="9:30:00">9:30 AM</option>
-            <option value="9:45:00">9:45 AM</option>
-            <option value="10:00:00">10:00 AM</option>
-            <option value="10:15:00">10:15 AM</option>
-            <option value="10:30:00">10:30 AM</option>
-            <option value="10:45:00">10:45 AM</option>
-            <option value="11:00:00">11:00 AM</option>
-            <option value="11:15:00">11:15 AM</option>
-            <option value="11:30:00">11:30 AM</option>
-            <option value="11:45:00">11:45 AM</option>
-            <option value="12:00:00">12:00 PM</option>
-            <option value="12:15:00">12:15 PM</option>
-            <option value="12:30:00">12:30 PM</option>
-            <option value="12:45:00">12:45 PM</option>
-            <option value="13:00:00">1:00 PM</option>
-            <option value="13:15:00">1:15 PM</option>
-            <option value="13:30:00">1:30 PM</option>
-            <option value="13:45:00">1:45 PM</option>
-            <option value="14:00:00">2:00 PM</option>
-            <option value="14:15:00">2:15 PM</option>
-            <option value="14:30:00">2:30 PM</option>
-            <option value="14:45:00">2:45 PM</option>
-            <option value="15:00:00">3:00 PM</option>
-            <option value="15:15:00">3:15 PM</option>
-            <option value="15:30:00">3:30 PM</option>
-            <option value="15:45:00">3:45 PM</option>
-            <option value="16:00:00">4:00 PM</option>
-            <option value="16:15:00">4:15 PM</option>
-            <option value="16:30:00">4:30 PM</option>
-            <option value="16:45:00">4:45 PM</option>
-            <option value="17:00:00">5:00 PM</option>
-            <option value="17:15:00">5:15 PM</option>
-            <option value="17:30:00">5:30 PM</option>
-            <option value="17:45:00">5:45 PM</option>
-            <option value="18:00:00">6:00 PM</option>
-            <option value="18:15:00">6:15 PM</option>
-            <option value="18:30:00">6:30 PM</option>
-            <option value="18:45:00">6:45 PM</option>
-            <option value="19:00:00">7:00 PM</option>
-            <option value="19:15:00">7:15 PM</option>
-            <option value="19:30:00">7:30 PM</option>
-            <option value="19:45:00">7:45 PM</option>
-            <option value="20:00:00">8:00 PM</option>
-            <option value="20:15:00">8:15 PM</option>
-            <option value="20:30:00">8:30 PM</option>
-            <option value="20:45:00">8:45 PM</option>
-            <option value="21:00:00">9:00 PM</option>
-            <option value="21:15:00">9:15 PM</option>
-            <option value="21:30:00">9:30 PM</option>
-            <option value="21:45:00">9:45 PM</option>
-            <option value="22:00:00">10:00 PM</option>
-            <option value="22:15:00">10:15 PM</option>
-            <option value="22:30:00">10:30 PM</option>
-            <option value="22:45:00">10:45 PM</option>
-            <option value="23:00:00">11:00 PM</option>
-            <option value="23:15:00">11:15 PM</option>
-            <option value="23:30:00">11:30 PM</option>
-            <option value="23:45:00">11:45 PM</option>
-          </select>
+        <div class="submitButtonRow">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
 
       <!-- rows and columns -->
@@ -251,6 +70,15 @@
         <div class="col-sm-4 lightblue">.col-sm-4</div>
         <div class="col-sm-4 gray">.col-sm-4</div>
         <div class="col-sm-4 lightgreen">.col-sm-4</div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2 lightblue">.col-sm-2</div>
+        <div class="col-sm-2 gray">.col-sm-2</div>
+        <div class="col-sm-2 lightgreen">.col-sm-2</div>
+        <div class="col-sm-2 lightblue">.col-sm-2</div>
+        <div class="col-sm-2 gray">.col-sm-2</div>
+        <div class="col-sm-2 lightgreen">.col-sm-2</div>
       </div>
       <div class="row">
         <div class="col-xs-4 lightblue">.col-xs-4</div>
@@ -318,52 +146,12 @@
       </svg>
     </div>
     <script type="text/javascript">
-"use strict";
+      "use strict";
 
-//init stuff, should probably go in a proper onready thingamajig
-document.querySelector('.container').removeAttribute('hidden');
-document.querySelector('.loader').setAttribute('hidden', true);
-      function getLines(mode) {
-        var url = 'get_lines.php?mode=' + mode;
-        // TODO add cache logic here
-        /*if ('caches' in window) {
-          //Check if the service worker has already cached this city's weather data. If the service worker has the data, then display the cached data while the app fetches the latest data.
+      //init stuff, should probably go in a proper onready thingamajig
+      document.querySelector('.container').removeAttribute('hidden');
+      document.querySelector('.loader').setAttribute('hidden', true);
 
-          caches.match(url).then(function(response) {
-            if (response) {
-              response.json().then(function updateFromCache(json) {
-                var results = json.query.results;
-                results.key = key;
-                results.label = label;
-                results.created = json.query.created;
-                app.updateForecastCard(results);
-              });
-            }
-          });
-        }*/
-
-        // Fetch the latest data.
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function() {
-          if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200) {
-              console.log('Data was available, getting latest');
-              var response = JSON.parse(request.response);
-              console.log(response);
-              //var results = response.query.results;
-              //do something with the results - update the select
-              //app.updateForecastCard(results);
-            }
-          } else {
-            // Return the initial weather forecast since no data is available.
-            console.log('No data available, returning initial');
-            //do something if fails...not this:
-            //app.updateForecastCard(initialWeatherForecast);
-          }
-        };
-        request.open('GET', url);
-        request.send();
-      };
 
       //global variable, available inside all functions
       var modes = document.getElementById('modes');
@@ -372,21 +160,18 @@ document.querySelector('.loader').setAttribute('hidden', true);
         console.log(modes.value);
 
         //hide the 'stops' dropdown if it exists
-        if(document.getElementById('stops')){
-          document.getElementById('stops').setAttribute('hidden', true);
+        if(document.querySelector(".stopsSelection")){
+          document.querySelector(".stopsSelection").setAttribute('hidden', true);
         }
-        //hide the 'times' div if it exists
-        if(document.getElementById('times')){
-          document.getElementById('times').setAttribute('hidden', true);
+        //hide the 'times-div' div if it exists
+        if(document.getElementById('times-div')){
+          document.getElementById('times-div').setAttribute('hidden', true);
         }
-
-
 
         //getLines(modes.value);
         var url = 'get_lines.php?mode=' + modes.value;
         //TODO: fetch to be replaced by function above once caches and service worker is set up
-        fetch(url)
-        .then(function(response){
+        fetch(url).then(function(response){
           return response.json().then(function(data){
             console.log(data);
 
@@ -417,7 +202,13 @@ document.querySelector('.loader').setAttribute('hidden', true);
               }
 
 
-              //Create and append the options
+              //Create and append the options - start with initial blank
+              var initialOption = document.createElement("option");
+              initialOption.value = "";
+              initialOption.text = "select line";
+              initialOption.disabled = true;
+              initialOption.selected = true;
+              selectList.appendChild(initialOption);
               for (var i = 0; i < data.length; i++) {
                 var option = document.createElement("option");
                 option.value = data[i].line_id;
@@ -433,8 +224,7 @@ document.querySelector('.loader').setAttribute('hidden', true);
         console.log('obj.value is: ' + obj.value);
         var url = 'get_stops.php?mode=' + modes.value + '&line=' + obj.value;
         //TODO: fetch to be replaced by function above once caches and service worker is set up
-        fetch(url)
-        .then(function(response){
+        fetch(url).then(function(response){
           return response.json().then(function(data){
             console.log(data);
             if(data.error_message){
@@ -451,8 +241,10 @@ document.querySelector('.loader').setAttribute('hidden', true);
                 selectList = document.getElementById('stops');
                 selectList.removeAttribute('hidden');
                 clearSelect(selectList);
+                document.querySelector(".stopsSelection").removeAttribute('hidden');
               }else{
                 var stopsDiv = document.querySelector(".stopsSelection");
+                stopsDiv.removeAttribute('hidden');
                 var labelFor = document.createElement("label");
                 labelFor.htmlFor = "stops";
                 labelFor.innerHTML = "Select stop";
@@ -465,7 +257,13 @@ document.querySelector('.loader').setAttribute('hidden', true);
               }
 
 
-              //Create and append the options
+              //Create and append the options - start with initial blank
+              var initialOption = document.createElement("option");
+              initialOption.value = "";
+              initialOption.text = "select stop";
+              initialOption.disabled = true;
+              initialOption.selected = true;
+              selectList.appendChild(initialOption);
               for (var i = 0; i < data.length; i++) {
                 var option = document.createElement("option");
                 option.value = data[i].stop_id;
@@ -479,10 +277,9 @@ document.querySelector('.loader').setAttribute('hidden', true);
 
       function loadTimes(){
         var selectList;
-        if(document.getElementById('times')){
-          selectList = document.getElementById('times');
+        if(document.getElementById('times-div')){
+          selectList = document.getElementById('times-div');
           selectList.removeAttribute('hidden');
-          clearSelect(selectList);
         }else{
           var stopsDiv = document.querySelector(".timesSelection");
           selectList = document.createElement("select");
@@ -506,7 +303,7 @@ document.querySelector('.loader').setAttribute('hidden', true);
       }
 
       function clearSelect(selectName){
-        //var list = document.getElementById(selectName);
+        console.log('about to clear this select: ' + selectName);
         while (selectName.options.length) {
           selectName.remove(0);
         }
@@ -562,8 +359,54 @@ document.querySelector('.loader').setAttribute('hidden', true);
       }
       function setEndTime(dropdown){
         //TODO need to put validation in here in case it's the last one
-        document.getElementById('morningEndTime').selectedIndex = dropdown.selectedIndex + 4;
+        document.getElementById('endTime').selectedIndex = dropdown.selectedIndex + 4;
       }
+
+
+      //NOT USED - but come back to later for cache logic
+      /*
+      function getLines(mode) {
+        var url = 'get_lines.php?mode=' + mode;
+        // TODO add cache logic here
+        if ('caches' in window) {
+          //Check if the service worker has already cached this city's weather data. If the service worker has the data, then display the cached data while the app fetches the latest data.
+
+          caches.match(url).then(function(response) {
+            if (response) {
+              response.json().then(function updateFromCache(json) {
+                var results = json.query.results;
+                results.key = key;
+                results.label = label;
+                results.created = json.query.created;
+                app.updateForecastCard(results);
+              });
+            }
+          });
+        }
+
+        // Fetch the latest data.
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+          if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+              console.log('Data was available, getting latest');
+              var response = JSON.parse(request.response);
+              console.log(response);
+              //var results = response.query.results;
+              //do something with the results - update the select
+              //app.updateForecastCard(results);
+            }
+          } else {
+            // Return the initial weather forecast since no data is available.
+            console.log('No data available, returning initial');
+            //do something if fails...not this:
+            //app.updateForecastCard(initialWeatherForecast);
+          }
+        };
+        request.open('GET', url);
+        request.send();
+      };*/
+
     </script>
 
     <!--script src="scripts/app.js" async></script-->
