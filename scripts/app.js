@@ -1,11 +1,11 @@
 // Copyright 2016 Google Inc.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //      http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -28,8 +28,8 @@
   };
 
 
-document.querySelector('.container').removeAttribute('hidden');
-  
+//document.querySelector('.container').removeAttribute('hidden');
+
 
   /*****************************************************************************
    *
@@ -431,9 +431,9 @@ document.querySelector('.container').removeAttribute('hidden');
 
 
   // TODO uncomment line below to test app with fake data
-  //app.updateTransportCard(initialTransport);
-  document.querySelector('.container').removeAttribute('hidden');
-      
+  app.updateTransportCard(initialTransport);
+  //document.querySelector('.container').removeAttribute('hidden');
+
 
 
   // TODO add startup code here
@@ -447,7 +447,7 @@ document.querySelector('.container').removeAttribute('hidden');
    *   Instead, check out IDB (https://www.npmjs.com/package/idb) or
    *   SimpleDB (https://gist.github.com/inexorabletash/c8069c042b734519680c)
    ************************************************************************/
-  /*
+
   app.selectedCities = localStorage.selectedCities;
   if (app.selectedCities) {
     app.selectedCities = JSON.parse(app.selectedCities);
@@ -473,5 +473,5 @@ document.querySelector('.container').removeAttribute('hidden');
              .register('./service-worker.js')
              .then(function() { console.log('Service Worker Registered'); });
   }
-  */
+
 })();

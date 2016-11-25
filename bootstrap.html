@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Bootstrap - When To Leave</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--online resources-->
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="offline/bootstrap.css">
     <script src="offline/jquery-3.1.1.js"></script>
     <script src="offline/bootstrap.js"></script>
+
     <link rel="stylesheet" href="styles/wtl.css">
   </head>
   <body>
@@ -23,9 +25,9 @@
         <p>You're working away - you're busy. Having to check transport timetables and then constantly keep an eye
           on the clock of when it's time to leave is too much of a distraction. Be notified when it's time to leave.</p>
       </div>
-      <form class="wtlInputForm">
+      <div class="wtlInputForm">
         <div class="form-group input-selection mode">
-          <label for="modes">Select transport mode:</label>
+          <label for="modes">Transport mode:</label>
           <select class="form-control" id="modes">
             <option selected disabled value="">--select mode of transportation--</option>
             <option value="2">Bus</option>
@@ -38,7 +40,8 @@
 
         <div class="form-group input-selection stopsSelection"></div>
 
-        <div id="times-div">
+        <div id="times-div" hidden>
+          Between which times do you want to be notified?
           <div class="row">
             <div class="col-sm-3">
               <div class="form-inline timesSelection">
@@ -59,11 +62,11 @@
             <div class="col-sm-3"></div>
             <div class="col-sm-3"></div>
           </div>
+          <div class="submitButtonRow">
+            <button type="submit" id="submitFormButton" class="btn btn-primary">Submit</button>
+          </div>
         </div>
-        <div class="submitButtonRow">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+      </div>
 
       <!-- rows and columns -->
       <div class="row">
@@ -148,6 +151,17 @@
     <script type="text/javascript">
       "use strict";
 
+      var app = {
+        //isLoading: true,
+        //visibleCards: {},
+        selectedCities: []
+        //spinner: document.querySelector('.loader'),
+        //cardTemplate: document.querySelector('.cardTemplate'),
+        //container: document.querySelector('.main'),
+        //addDialog: document.querySelector('.dialog-container'),
+        //daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      };
+
       //init stuff, should probably go in a proper onready thingamajig
       document.querySelector('.container').removeAttribute('hidden');
       document.querySelector('.loader').setAttribute('hidden', true);
@@ -157,6 +171,9 @@
       var modes = document.getElementById('modes');
 
       modes.addEventListener("change", function() {
+        //display the loading spinner
+        document.querySelector('.loader').removeAttribute('hidden');
+
         console.log(modes.value);
 
         //hide the 'stops' dropdown if it exists
@@ -192,7 +209,7 @@
                 var linesDiv = document.querySelector(".linesSelection");
                 var labelFor = document.createElement("label");
                 labelFor.htmlFor = "lines";
-                labelFor.innerHTML = "Select line";
+                labelFor.innerHTML = "Line/Route";
                 linesDiv.appendChild(labelFor);
                 selectList = document.createElement("select");
                 selectList.id = "lines";
@@ -217,10 +234,17 @@
               }
             }
           });
+        }).then(function(){
+          //remove loading spinner
+          document.querySelector('.loader').setAttribute('hidden', true);
         });
       });
 
       function getStops(obj){
+        //display the loading spinner
+        document.querySelector('.loader').removeAttribute('hidden');
+
+
         console.log('obj.value is: ' + obj.value);
         var url = 'get_stops.php?mode=' + modes.value + '&line=' + obj.value;
         //TODO: fetch to be replaced by function above once caches and service worker is set up
@@ -247,7 +271,7 @@
                 stopsDiv.removeAttribute('hidden');
                 var labelFor = document.createElement("label");
                 labelFor.htmlFor = "stops";
-                labelFor.innerHTML = "Select stop";
+                labelFor.innerHTML = "Which stop?";
                 stopsDiv.appendChild(labelFor);
                 selectList = document.createElement("select");
                 selectList.id = "stops";
@@ -272,7 +296,10 @@
               }
             }
           });
-        });
+        }).then(function(){
+          //remove loading spinner
+          document.querySelector('.loader').setAttribute('hidden', true);
+        });;
       }
 
       function loadTimes(){
@@ -308,6 +335,73 @@
           selectName.remove(0);
         }
       }
+
+      function sortByKey(array, key) {
+          return array.sort(function(a, b) {
+              var x = a[key]; var y = b[key];
+              return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+          });
+      }
+      function setEndTime(dropdown){
+        //TODO need to put validation in here in case it's the last one
+        document.getElementById('endTime').selectedIndex = dropdown.selectedIndex + 4;
+      }
+
+
+      //submit button stuff
+      document.getElementById('submitFormButton').addEventListener('click', function() {
+        // To use FORM SUBMIT, or NOT to use FORM SUBMIT...that is the question...let's NOT
+        var modeDropdown = document.getElementById('modes');
+        var lineDropdown = document.getElementById('lines');
+        var stopDropdown = document.getElementById('stops');
+        var startTimeDropdown = document.getElementById('startTime');
+        var endTimeDropdown = document.getElementById('endTime');
+
+        var selectedMode = modeDropdown.options[modeDropdown.selectedIndex];
+        var selectedLine = lineDropdown.options[lineDropdown.selectedIndex];
+        var selectedStop = stopDropdown.options[stopDropdown.selectedIndex];
+        var selectedStartTime = startTimeDropdown.options[startTimeDropdown.selectedIndex];
+        var selectedEndTime = endTimeDropdown.options[endTimeDropdown.selectedIndex];
+
+        var selectedModeValue = selectedMode.value;
+        var selectedModeText = selectedMode.textContent;
+        console.log('selectedModeValue is: ' + selectedModeValue + ', selectedModeText: ' + selectedModeText);
+
+        var selectedLineValue = selectedLine.value;
+        var selectedLineText = selectedLine.textContent;
+        console.log('selectedLineValue is: ' + selectedLineValue + ', selectedLineText: ' + selectedLineText);
+
+        var selectedStopValue = selectedStop.value;
+        var selectedStopText = selectedStop.textContent;
+        console.log('selectedStopValue is: ' + selectedStopValue + ', selectedStopText: ' + selectedStopText);
+
+        var selectedStartTimeValue = selectedStartTime.value;
+        var selectedStartTimeText = selectedStartTime.textContent;
+        console.log('selectedStartTimeValue is: ' + selectedStartTimeValue + ', selectedStartTimeText: ' + selectedStartTimeText);
+
+        var selectedEndTimeValue = selectedEndTime.value;
+        var selectedEndTimeText = selectedEndTime.textContent;
+        console.log('selectedEndTimeValue is: ' + selectedEndTimeValue + ', selectedEndTimeValue: ' + selectedEndTimeValue);
+
+
+        /*var selected = select.options[select.selectedIndex];
+        var key = selected.value;
+        var label = selected.textContent;*/
+        if (!app.selectedCities) {
+          app.selectedCities = [];
+        }
+        //UP TO HERE
+        //app.getForecast(key, label);
+        app.selectedCities.push({modeValue: selectedModeValue, modeText: selectedModeText});
+        app.saveSelectedCities();
+        app.toggleAddDialog(false);
+      });
+
+      app.saveSelectedCities = function() {
+        var selectedCities = JSON.stringify(app.selectedCities);
+        localStorage.selectedCities = selectedCities;
+      };
+
 
 /*$("#non-dynamic-ancestor-of-message").on("click", "#message", function() {
     console.log("clicked");
@@ -350,17 +444,6 @@
       });
 
 */
-
-      function sortByKey(array, key) {
-          return array.sort(function(a, b) {
-              var x = a[key]; var y = b[key];
-              return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-          });
-      }
-      function setEndTime(dropdown){
-        //TODO need to put validation in here in case it's the last one
-        document.getElementById('endTime').selectedIndex = dropdown.selectedIndex + 4;
-      }
 
 
       //NOT USED - but come back to later for cache logic
