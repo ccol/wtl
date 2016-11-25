@@ -500,6 +500,15 @@
         });
       }
 
+      function checkDeparture(){
+      	//second parameter , {} is missing - this could be some variable
+      	//NO, WE NEED TO COMPLETELY SEPARATE OUT THE SEND PART, SO THAT THIS CAN BE CALLED IN THE SERVICE WORKER, AND THE RESPONSE PASSED IN AS THE PAYLOAD FOR TITLE AND BODY
+      	$.post("ptv_check_and_send.php", function(response){
+              console.log("response: " + response);
+              document.getElementById("minsaway").innerHTML = 'Next bus is ' + response + ' minutes away';
+          });
+      }
+
 /*$("#non-dynamic-ancestor-of-message").on("click", "#message", function() {
     console.log("clicked");
 });*/
