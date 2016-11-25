@@ -6,6 +6,8 @@ require_once 'ptv_utils.php';
 $minsAway = 7;
 $specificurl = "/v2/mode/2/line/8596/stop/21301/directionid/40/departures/all/limit/3";
 
+$subscriberId = $_GET['subscriberId'];
+
 //get the signed URL based on Maggs St 906
 $signedUrl = generateURLWithDevIDAndKey($specificurl);
 
@@ -22,7 +24,8 @@ if (strpos($nextTime, 'CURL_ERROR') !== false) {
 	//	echo "<h1>It's Time!!!</h1>";
 
 //just testing, so return something after sending a push
-	$sendpush = sendPush($diffInMins);
+	//$sendpush = sendPush($diffInMins);
+	$sendPush = sendPushToId($subscriberId);
 	//SHOULD PUT A CHECK IN HERE TO CHECK $sendpush FOR AN ERROR MESSAGE, E.G. CHECK THAT SUCCESS:"1"
 	echo "$diffInMins";
 }

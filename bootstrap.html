@@ -4,6 +4,9 @@
     <title>Bootstrap - When To Leave</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="manifest.json">
+
     <!--online resources-->
     <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -92,6 +95,8 @@
         </div>
       </div>
 
+
+<button type="button" class="btn btn-info" onclick="sendTestNotification()">Send Test Notification</button>
       <!-- rows and columns -->
       <div class="row">
         <div class="col-sm-4 lightblue">.col-sm-4</div>
@@ -159,7 +164,9 @@
         //isLoading: true,
         //visibleCards: {},
         //selectedCities: []
-        selectedNotifications: []
+        wtlSubscriberId: '',
+        wtlSubscriberStatus: false,
+        wtlSelectedNotifications: []
         //spinner: document.querySelector('.loader'),
         //cardTemplate: document.querySelector('.cardTemplate'),
         //container: document.querySelector('.main'),
@@ -179,8 +186,6 @@
         //display the loading spinner
         document.querySelector('.loader').removeAttribute('hidden');
 
-        console.log(modes.value);
-
         //hide the 'stops' dropdown if it exists
         if(document.querySelector(".stopsSelection")){
           document.querySelector(".stopsSelection").setAttribute('hidden', true);
@@ -195,7 +200,6 @@
         //TODO: fetch to be replaced by function above once caches and service worker is set up
         fetch(url).then(function(response){
           return response.json().then(function(data){
-            console.log(data);
 
             if(data.error_message){
               console.log('error message json value: ' + data.error_message);
@@ -249,13 +253,10 @@
         //display the loading spinner
         document.querySelector('.loader').removeAttribute('hidden');
 
-
-        console.log('obj.value is: ' + obj.value);
         var url = 'get_stops.php?mode=' + modes.value + '&line=' + obj.value;
         //TODO: fetch to be replaced by function above once caches and service worker is set up
         fetch(url).then(function(response){
           return response.json().then(function(data){
-            console.log(data);
             if(data.error_message){
               console.log('error message json value: ' + data.error_message);
               showError(data.error_message);
@@ -346,7 +347,6 @@
       }
 
       function clearSelect(selectName){
-        console.log('about to clear this select: ' + selectName);
         while (selectName.options.length) {
           selectName.remove(0);
         }
@@ -381,62 +381,60 @@
 
         var selectedModeValue = selectedMode.value;
         var selectedModeText = selectedMode.textContent;
-        console.log('selectedModeValue is: ' + selectedModeValue + ', selectedModeText: ' + selectedModeText);
 
         var selectedLineValue = selectedLine.value;
         var selectedLineText = selectedLine.textContent;
-        console.log('selectedLineValue is: ' + selectedLineValue + ', selectedLineText: ' + selectedLineText);
 
         var selectedStopValue = selectedStop.value;
         var selectedStopText = selectedStop.textContent;
-        console.log('selectedStopValue is: ' + selectedStopValue + ', selectedStopText: ' + selectedStopText);
 
         var selectedStartTimeValue = selectedStartTime.value;
         var selectedStartTimeText = selectedStartTime.textContent;
-        console.log('selectedStartTimeValue is: ' + selectedStartTimeValue + ', selectedStartTimeText: ' + selectedStartTimeText);
 
         var selectedEndTimeValue = selectedEndTime.value;
         var selectedEndTimeText = selectedEndTime.textContent;
-        console.log('selectedEndTimeValue is: ' + selectedEndTimeValue + ', selectedEndTimeValue: ' + selectedEndTimeValue);
-
 
         /*var selected = select.options[select.selectedIndex];
         var key = selected.value;
         var label = selected.textContent;*/
-        if (!app.selectedNotifications) {
-          app.selectedNotifications = [];
+        if (!app.wtlSelectedNotifications) {
+          app.wtlSelectedNotifications = [];
         }
         //UP TO HERE
         //app.getForecast(key, label);
-        app.selectedNotifications.push({key: selectedModeText, label: selectedLineText});
-        app.selectedNotifications.push({modeValue: selectedModeValue, modeText: selectedModeText,
+        app.wtlSelectedNotifications.push({key: selectedModeText, label: selectedLineText});
+        app.wtlSelectedNotifications.push({modeValue: selectedModeValue, modeText: selectedModeText,
           lineValue: selectedLineValue, lineText: selectedLineText,
           stopValue: selectedStopValue, stopText: selectedStopText,
           startTimeValue: selectedStartTimeText, startTimeText: selectedStartTimeText,
           endTimeValue: selectedEndTimeValue, endTimeText: selectedEndTimeText}
         );
-        console.log('app.selectedNotifications.push was successful');
-        app.saveSelectedNotifications();
-        console.log('app.selectedNotifications.push was successful');
+        console.log('app.wtlSelectedNotifications.push was successful');
+        app.saveWtlSelectedNotifications();
+        console.log('app.wtlSelectedNotifications.push was successful');
         showSuccessMessage('Notification saved!');
 
-        if (!isSubscribed) {
-          subscribe();
-        }
+        //if (!checkIfUserIsOptedIn()) {
+        //no check - just subscribe and update the local storage values
+        subscribe();
+        //}
       });
 
-      app.saveSelectedNotifications = function() {
-        var selectedNotifications = JSON.stringify(app.selectedNotifications);
-        console.log('selectedNotifications is: ' + selectedNotifications);
-        localStorage.selectedNotifications = selectedNotifications;
+      app.saveWtlSelectedNotifications = function() {
+        var wtlSelectedNotifications = JSON.stringify(app.wtlSelectedNotifications);
+        console.log('wtlSelectedNotifications is: ' + wtlSelectedNotifications);
+        localStorage.wtlSelectedNotifications = wtlSelectedNotifications;
       };
 
       //load from local storage
-      app.selectedNotifications = localStorage.selectedNotifications;
-      if (app.selectedNotifications) {
-        app.selectedNotifications = JSON.parse(app.selectedNotifications);
-        app.selectedNotifications.forEach(function(notification) {
-          console.log('app.selectedNotifications loaded, notification.selectedLineText: ' + notification.lineText);
+      app.wtlSubscriberId = localStorage.wtlSubscriberId;
+      app.wtlSubscriberStatus = localStorage.wtlSubscriberStatus;
+
+      app.wtlSelectedNotifications = localStorage.wtlSelectedNotifications;
+      if (app.wtlSelectedNotifications) {
+        app.wtlSelectedNotifications = JSON.parse(app.wtlSelectedNotifications);
+        app.wtlSelectedNotifications.forEach(function(notification) {
+          console.log('app.wtlSelectedNotifications loaded, notification.selectedLineText: ' + notification.lineText);
           //TODO write a 'getNotifications' function to display at ht ebottom of the page in a "Current notifications" setup, then add delete button etc.
           //app.getForecast(city.key, city.label);
         });
@@ -449,6 +447,17 @@
           {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
         ];
         app.saveSelectedCities();*/
+      }
+
+      //function to check if user is opted-in and return true or false
+      function checkIfUserIsOptedIn(){
+        app.wtlSubscriberId = localStorage.wtlSubscriberId;
+        app.wtlSubscriberStatus = localStorage.wtlSubscriberStatus;
+        if(app.wtlSubscriberId && app.wtlSubscriberStatus){
+          return true;
+        }else{
+          return false;
+        }
       }
 
 
@@ -478,19 +487,37 @@
           sub = pushSubscription;
           console.log('Subscribed! Endpoint:', sub.endpoint);
 
-      //CC Custom Code:
-      //start send endpoint to php for saving
-      $.post("save_gcm.php", {data: sub.endpoint}, function(response){
-              console.log("response: " + response);
+          //CC Custom Code:
+          //start send endpoint to php for saving
+          $.post("save_gcm.php", {data: sub.endpoint}, function(response){
+            console.log("response: " + response);
           });
-      //end send endpoint to php for saving
+          //end send endpoint to php for saving
 
           isSubscribed = true;
+
+          //save into localstorage
+
+          if (!app.wtlSubscriberId) {
+            app.wtlSubscriberId = '';
+          }
+          //UP TO HERE
+          //app.getForecast(key, label);
+          //app.wtlSelectedNotifications.push({key: selectedModeText, label: selectedLineText});
+          if(sub.endpoint.indexOf("https://android.googleapis.com/gcm/send/") == 0){
+            app.wtlSubscriberId = sub.endpoint.substring(40);
+            //save into local storage
+            localStorage.wtlSubscriberId = app.wtlSubscriberId;
+            localStorage.wtlSubscriberStatus = true;
+            console.log('app.wtlSubscriberId successfully saved into localstorage and set to ' + app.wtlSubscriberId);
+          }
         });
       }
 
       function unsubscribe() {
         sub.unsubscribe().then(function(event) {
+//TODO update localstorage
+
           subscribeButton.textContent = 'Subscribe';
           console.log('Unsubscribed!', event);
           isSubscribed = false;
@@ -509,6 +536,18 @@
           });
       }
 
+
+
+      function sendTestNotification(){
+      	//second parameter , {} is missing - this could be some variable
+      	//NO, WE NEED TO COMPLETELY SEPARATE OUT THE SEND PART, SO THAT THIS CAN BE CALLED IN THE SERVICE WORKER, AND THE RESPONSE PASSED IN AS THE PAYLOAD FOR TITLE AND BODY
+        console.log('app.wtlSubscriberId is: ' + app.wtlSubscriberId);
+      	$.post("ptv_check_and_send.php?subscriberId=" + app.wtlSubscriberId, function(response){
+            console.log("response: " + response);
+              //document.getElementById("minsaway").innerHTML = 'Next bus is ' + response + ' minutes away';
+          });
+      }
+//https://android.googleapis.com/gcm/send/fU6zFIuQQDU:APA91bEN9sbfvqQb-5T3RCrwEePTlc7269BywDw89lbbkKrk7KgKFmjkmKqPDQdWadi5YKJ4YJseIclpI2I0pCf3OArQXIHB5n_fs1MuASoQFtye1aKCkiqPYy3I8fWwXJtzMNW6xjuC
 /*$("#non-dynamic-ancestor-of-message").on("click", "#message", function() {
     console.log("clicked");
 });*/
