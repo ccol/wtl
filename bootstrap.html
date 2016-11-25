@@ -43,7 +43,7 @@
         <div id="times-div" hidden>
           Between which times do you want to be notified?
           <div class="row">
-            <div class="col-sm-3">
+            <div class="col-xs-6 col-sm-3">
               <div class="form-inline timesSelection">
                 <label for="startTime">Start Time:</label>
                 <select class="form-control form-time" id="startTime" onchange="setEndTime(this);">
@@ -51,7 +51,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-xs-6 col-sm-3">
               <div class="form-inline timesSelection">
                 <label for="endTime">End Time:</label>
                 <select class="form-control form-time" id="endTime">
@@ -62,9 +62,33 @@
             <div class="col-sm-3"></div>
             <div class="col-sm-3"></div>
           </div>
+          <div class="form-inline minutesAway-div">
+            <label for="minutesAway">Buffer (TODO reword)</label>
+            <input type="text" class="form-control" value="10"/>
+          </div>
           <div class="submitButtonRow">
             <button type="submit" id="submitFormButton" class="btn btn-primary">Submit</button>
           </div>
+        </div>
+      </div>
+
+      <!-- alerts -->
+      <div id="alertSection">
+        <div class="alert alert-success fade in" hidden>
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
+
+        <div class="alert alert-info" hidden>
+          <strong>Info!</strong> Indicates a neutral informative change or action.
+        </div>
+
+        <div class="alert alert-warning" hidden>
+          <strong>Warning!</strong> Indicates a warning that might need attention.
+        </div>
+
+        <div class="alert alert-danger" hidden>
+          <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
         </div>
       </div>
 
@@ -91,26 +115,6 @@
       <div class="row">
         <div class="col-xs-6 lightblue">.col-xs-6</div>
         <div class="col-xs-6 gray">.col-xs-6</div>
-      </div>
-
-      <!-- alerts -->
-      <div id="alertSection">
-        <div class="alert alert-success fade in" hidden>
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> Indicates a successful or positive action.
-        </div>
-
-        <div class="alert alert-info" hidden>
-          <strong>Info!</strong> Indicates a neutral informative change or action.
-        </div>
-
-        <div class="alert alert-warning" hidden>
-          <strong>Warning!</strong> Indicates a warning that might need attention.
-        </div>
-
-        <div class="alert alert-danger" hidden>
-          <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
-        </div>
       </div>
 
       <!-- dropdown -->
@@ -154,7 +158,8 @@
       var app = {
         //isLoading: true,
         //visibleCards: {},
-        selectedCities: []
+        //selectedCities: []
+        selectedNotifications: []
         //spinner: document.querySelector('.loader'),
         //cardTemplate: document.querySelector('.cardTemplate'),
         //container: document.querySelector('.main'),
@@ -209,7 +214,7 @@
                 var linesDiv = document.querySelector(".linesSelection");
                 var labelFor = document.createElement("label");
                 labelFor.htmlFor = "lines";
-                labelFor.innerHTML = "Line/Route";
+                labelFor.innerHTML = "Line/Route TODO trains at least will need a direction...";
                 linesDiv.appendChild(labelFor);
                 selectList = document.createElement("select");
                 selectList.id = "lines";
@@ -326,7 +331,18 @@
           alertDanger.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Error occurred: </strong>' + errorMessage;
           document.getElementById("alertSection").appendChild(alertDanger);
         }
+      }
 
+      function showSuccessMessage(successMessage){
+        var alertSuccess = document.querySelector('.alert-success');
+        if(alertSuccess){
+          alertSuccess.removeAttribute('hidden');
+          alertSuccess.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success: </strong>' + successMessage;
+        }else{
+          var alertSuccess = document.createElement("div");
+          alertSuccess.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success: </strong>' + successMessage;
+          alertSuccess.getElementById("alertSection").appendChild(alertSuccess);
+        }
       }
 
       function clearSelect(selectName){
@@ -387,21 +403,102 @@
         /*var selected = select.options[select.selectedIndex];
         var key = selected.value;
         var label = selected.textContent;*/
-        if (!app.selectedCities) {
-          app.selectedCities = [];
+        if (!app.selectedNotifications) {
+          app.selectedNotifications = [];
         }
         //UP TO HERE
         //app.getForecast(key, label);
-        app.selectedCities.push({modeValue: selectedModeValue, modeText: selectedModeText});
-        app.saveSelectedCities();
-        app.toggleAddDialog(false);
+        app.selectedNotifications.push({key: selectedModeText, label: selectedLineText});
+        app.selectedNotifications.push({modeValue: selectedModeValue, modeText: selectedModeText,
+          lineValue: selectedLineValue, lineText: selectedLineText,
+          stopValue: selectedStopValue, stopText: selectedStopText,
+          startTimeValue: selectedStartTimeText, startTimeText: selectedStartTimeText,
+          endTimeValue: selectedEndTimeValue, endTimeText: selectedEndTimeText}
+        );
+        console.log('app.selectedNotifications.push was successful');
+        app.saveSelectedNotifications();
+        console.log('app.selectedNotifications.push was successful');
+        showSuccessMessage('Notification saved!');
+
+        if (!isSubscribed) {
+          subscribe();
+        }
       });
 
-      app.saveSelectedCities = function() {
-        var selectedCities = JSON.stringify(app.selectedCities);
-        localStorage.selectedCities = selectedCities;
+      app.saveSelectedNotifications = function() {
+        var selectedNotifications = JSON.stringify(app.selectedNotifications);
+        console.log('selectedNotifications is: ' + selectedNotifications);
+        localStorage.selectedNotifications = selectedNotifications;
       };
 
+      //load from local storage
+      app.selectedNotifications = localStorage.selectedNotifications;
+      if (app.selectedNotifications) {
+        app.selectedNotifications = JSON.parse(app.selectedNotifications);
+        app.selectedNotifications.forEach(function(notification) {
+          console.log('app.selectedNotifications loaded, notification.selectedLineText: ' + notification.lineText);
+          //TODO write a 'getNotifications' function to display at ht ebottom of the page in a "Current notifications" setup, then add delete button etc.
+          //app.getForecast(city.key, city.label);
+        });
+      } else {
+        // The user is using the app for the first time, or the user has not saved any cities, so show the user some fake data.
+        console.log('Using the app for the first time');
+        //no need to load defaults...commenting out
+        /*app.updateForecastCard(initialWeatherForecast);
+        app.selectedCities = [
+          {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
+        ];
+        app.saveSelectedCities();*/
+      }
+
+
+
+      //subscribe and send stuff
+      var reg;
+      var sub;
+      var isSubscribed = false;
+      var subscribeButton = document.getElementById('subscribeButton');
+
+      if ('serviceWorker' in navigator) {
+        console.log('Service Worker is supported');
+        navigator.serviceWorker.register('wtl-service-worker.js').then(function() {
+          return navigator.serviceWorker.ready;
+        }).then(function(serviceWorkerRegistration) {
+          reg = serviceWorkerRegistration;
+          //subscribeButton.disabled = false;
+          console.log('Service Worker is ready :^)', reg);
+        }).catch(function(error) {
+          console.log('Service Worker Error :^(', error);
+        });
+      }
+
+      function subscribe() {
+        reg.pushManager.subscribe({userVisibleOnly: true}).
+        then(function(pushSubscription){
+          sub = pushSubscription;
+          console.log('Subscribed! Endpoint:', sub.endpoint);
+
+      //CC Custom Code:
+      //start send endpoint to php for saving
+      $.post("save_gcm.php", {data: sub.endpoint}, function(response){
+              console.log("response: " + response);
+          });
+      //end send endpoint to php for saving
+
+          isSubscribed = true;
+        });
+      }
+
+      function unsubscribe() {
+        sub.unsubscribe().then(function(event) {
+          subscribeButton.textContent = 'Subscribe';
+          console.log('Unsubscribed!', event);
+          isSubscribed = false;
+        }).catch(function(error) {
+          console.log('Error unsubscribing', error);
+          subscribeButton.textContent = 'Subscribe';
+        });
+      }
 
 /*$("#non-dynamic-ancestor-of-message").on("click", "#message", function() {
     console.log("clicked");

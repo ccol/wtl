@@ -23,9 +23,14 @@ h1 {
 }
 .submitButtonRow{
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 .timesSelection{
   padding-top: 15px;
+}
+.minutesAway-div{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /*overwrite bootstrap.css*/
