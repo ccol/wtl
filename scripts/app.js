@@ -432,7 +432,7 @@
 
   // TODO uncomment line below to test app with fake data
   app.updateTransportCard(initialTransport);
-  //document.querySelector('.container').removeAttribute('hidden');
+  document.querySelector('.container').removeAttribute('hidden');
 
 
 

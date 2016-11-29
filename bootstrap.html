@@ -66,8 +66,8 @@
             <div class="col-sm-3"></div>
           </div>
           <div class="form-inline minutesAway-div">
-            <label for="minutesAway">Buffer (TODO reword)</label>
-            <input type="text" class="form-control" value="10"/>
+            <label data-toggle="tooltip" title="This acts as a buffer: it's how many minutes before arrival time you'll be notfied to leave" for="minutesAway">How long does it take you to walk to the stop?</label>
+            <input type="text" id="minutesAway" class="form-control" value="10"/>
           </div>
           <div class="submitButtonRow">
             <button type="submit" id="submitFormButton" class="btn btn-primary">Submit</button>
@@ -98,6 +98,12 @@
 
 <button type="button" class="btn btn-info" onclick="sendTestNotification()">Send Test Notification</button>
       <!-- rows and columns -->
+
+
+      <div id="savedNotifications"></div>
+
+
+
       <div class="row">
         <div class="col-sm-4 lightblue">.col-sm-4</div>
         <div class="col-sm-4 gray">.col-sm-4</div>
@@ -121,6 +127,13 @@
         <div class="col-xs-6 lightblue">.col-xs-6</div>
         <div class="col-xs-6 gray">.col-xs-6</div>
       </div>
+      <div class="row">
+        <div class="col-xs-11 col-md-11 lightblue">.col-xs-11</div>
+        <div class="col-xs-1 col-md-1 gray">.col-xs-6</div>
+      </div>
+
+
+
 
       <!-- dropdown -->
       <div class="dropdown">
@@ -372,6 +385,7 @@
         var stopDropdown = document.getElementById('stops');
         var startTimeDropdown = document.getElementById('startTime');
         var endTimeDropdown = document.getElementById('endTime');
+        var minutesAwayValue = document.getElementById('minutesAway').value;
 
         var selectedMode = modeDropdown.options[modeDropdown.selectedIndex];
         var selectedLine = lineDropdown.options[lineDropdown.selectedIndex];
@@ -400,14 +414,15 @@
         if (!app.wtlSelectedNotifications) {
           app.wtlSelectedNotifications = [];
         }
-        //UP TO HERE
         //app.getForecast(key, label);
-        app.wtlSelectedNotifications.push({key: selectedModeText, label: selectedLineText});
-        app.wtlSelectedNotifications.push({modeValue: selectedModeValue, modeText: selectedModeText,
+        //get a unique key for this notification - so it can be deleted later
+        var uniqueKey = new Date().valueOf();
+        app.wtlSelectedNotifications.push({key: uniqueKey, modeValue: selectedModeValue, modeText: selectedModeText,
           lineValue: selectedLineValue, lineText: selectedLineText,
           stopValue: selectedStopValue, stopText: selectedStopText,
           startTimeValue: selectedStartTimeText, startTimeText: selectedStartTimeText,
-          endTimeValue: selectedEndTimeValue, endTimeText: selectedEndTimeText}
+          endTimeValue: selectedEndTimeValue, endTimeText: selectedEndTimeText,
+          minutesAway: minutesAwayValue}
         );
         console.log('app.wtlSelectedNotifications.push was successful');
         app.saveWtlSelectedNotifications();
@@ -418,6 +433,8 @@
         //no check - just subscribe and update the local storage values
         subscribe();
         //}
+
+        //TODO need to load notifications so you can see your saved one immediately
       });
 
       app.saveWtlSelectedNotifications = function() {
@@ -435,6 +452,28 @@
         app.wtlSelectedNotifications = JSON.parse(app.wtlSelectedNotifications);
         app.wtlSelectedNotifications.forEach(function(notification) {
           console.log('app.wtlSelectedNotifications loaded, notification.selectedLineText: ' + notification.lineText);
+          //UP TO HERE
+          var savedNotifications = document.getElementById("savedNotifications");
+          var newRow = document.createElement("div")
+          newRow.className = "row";
+          newRow.id = notification.key;
+
+          var newColumn = document.createElement("div");
+          newColumn.className = "col-xs-11 col-md-11 lightblue";
+          newColumn.innerHTML = "Test: " + notification.lineText;
+
+          newRow.appendChild(newColumn);
+
+          var deleteButtonColumn = document.createElement("div");
+          deleteButtonColumn.className = "col-xs-1 col-md-1 gray";
+          deleteButtonColumn.innerHTML = '<button type="button" class="btn btn-link" onclick="deleteNotification(\'' + notification.key + '\');">Delete</button>';
+          newRow.appendChild(deleteButtonColumn);
+
+          savedNotifications.appendChild(newRow);
+
+
+          //savedNotifications.appendChild(newColumn);
+
           //TODO write a 'getNotifications' function to display at ht ebottom of the page in a "Current notifications" setup, then add delete button etc.
           //app.getForecast(city.key, city.label);
         });
@@ -447,6 +486,25 @@
           {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
         ];
         app.saveSelectedCities();*/
+      }
+
+      function deleteNotification(key){
+        //delete the notification from local storage and remove the div
+        //Step 1, delete it from app.wtlSelectedNotifications
+        for(var i = 0; i < app.wtlSelectedNotifications.length; i++){
+          console.log('deleteNotification, i: ' + i + ', key: ' + key);
+          if(app.wtlSelectedNotifications[i].key == key){
+            app.wtlSelectedNotifications.splice(i, 1);
+            break;
+          }
+        }
+        //Step 2, stringify, and save the updated app.wtlSelectedNotifications to localStorage
+        var wtlSelectedNotifications = JSON.stringify(app.wtlSelectedNotifications);
+        console.log('wtlSelectedNotifications is: ' + wtlSelectedNotifications);
+        localStorage.wtlSelectedNotifications = wtlSelectedNotifications;
+        //Step 3, remove the div
+        var divToDelete = document.getElementById(key);
+        divToDelete.remove();
       }
 
       //function to check if user is opted-in and return true or false
@@ -501,9 +559,6 @@
           if (!app.wtlSubscriberId) {
             app.wtlSubscriberId = '';
           }
-          //UP TO HERE
-          //app.getForecast(key, label);
-          //app.wtlSelectedNotifications.push({key: selectedModeText, label: selectedLineText});
           if(sub.endpoint.indexOf("https://android.googleapis.com/gcm/send/") == 0){
             app.wtlSubscriberId = sub.endpoint.substring(40);
             //save into local storage
@@ -547,7 +602,10 @@
               //document.getElementById("minsaway").innerHTML = 'Next bus is ' + response + ' minutes away';
           });
       }
-//https://android.googleapis.com/gcm/send/fU6zFIuQQDU:APA91bEN9sbfvqQb-5T3RCrwEePTlc7269BywDw89lbbkKrk7KgKFmjkmKqPDQdWadi5YKJ4YJseIclpI2I0pCf3OArQXIHB5n_fs1MuASoQFtye1aKCkiqPYy3I8fWwXJtzMNW6xjuC
+      //https://android.googleapis.com/gcm/send/fU6zFIuQQDU:APA91bEN9sbfvqQb-5T3RCrwEePTlc7269BywDw89lbbkKrk7KgKFmjkmKqPDQdWadi5YKJ4YJseIclpI2I0pCf3OArQXIHB5n_fs1MuASoQFtye1aKCkiqPYy3I8fWwXJtzMNW6xjuC
+
+
+
 /*$("#non-dynamic-ancestor-of-message").on("click", "#message", function() {
     console.log("clicked");
 });*/
@@ -638,6 +696,11 @@
     </script>
 
     <!--script src="scripts/app.js" async></script-->
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
 
   </body>
 </html>
