@@ -1,0 +1,92 @@
+{
+  "values": [
+    {
+      "platform": {
+        "platform_number": null,
+        "at_platform_now": false,
+        "realtime_id": 0,
+        "stop": {
+          "distance": 0.0,
+          "suburb": "Doncaster East",
+          "transport_type": "bus",
+          "route_type": 2,
+          "stop_id": 21301,
+          "location_name": "Maggs St/Blackburn Rd",
+          "lat": -37.79377,
+          "lon": 145.161133
+        },
+        "direction": {
+          "linedir_id": 8698,
+          "direction_id": 222,
+          "direction_name": "Frankston",
+          "line": {
+            "transport_type": "bus",
+            "route_type": 2,
+            "line_id": 7531,
+            "line_name": "901 - Frankston - Melbourne Airport (SMARTBUS Service)",
+            "line_number": "901",
+            "line_name_short": "Frankston - Melbourne Airport (SMARTBUS Service)",
+            "line_number_long": "901"
+          }
+        }
+      },
+      "run": {
+        "transport_type": "bus",
+        "route_type": 2,
+        "run_id": 42499,
+        "num_skipped": 0,
+        "destination_id": 31075,
+        "destination_name": "Frankston Station/Young St",
+        "status": "scheduled"
+      },
+      "time_timetable_utc": "2016-11-30T03:31:00Z",
+      "time_realtime_utc": "2016-11-30T03:32:10Z",
+      "flags": "",
+      "disruptions": []
+    },
+    {
+      "platform": {
+        "platform_number": null,
+        "at_platform_now": false,
+        "realtime_id": 0,
+        "stop": {
+          "distance": 0.0,
+          "suburb": "Doncaster East",
+          "transport_type": "bus",
+          "route_type": 2,
+          "stop_id": 21301,
+          "location_name": "Maggs St/Blackburn Rd",
+          "lat": -37.79377,
+          "lon": 145.161133
+        },
+        "direction": {
+          "linedir_id": 9468,
+          "direction_id": 40,
+          "direction_name": "City (King/Lonsdale Sts)",
+          "line": {
+            "transport_type": "bus",
+            "route_type": 2,
+            "line_id": 8596,
+            "line_name": "906 - City - Warrandyte via The Pines SC (SMARTBUS service)",
+            "line_number": "906",
+            "line_name_short": "City - Warrandyte via The Pines SC (SMARTBUS service)",
+            "line_number_long": "906"
+          }
+        }
+      },
+      "run": {
+        "transport_type": "bus",
+        "route_type": 2,
+        "run_id": 43646,
+        "num_skipped": 0,
+        "destination_id": 18058,
+        "destination_name": "King St/Lonsdale St",
+        "status": "scheduled"
+      },
+      "time_timetable_utc": "2016-11-30T03:34:00Z",
+      "time_realtime_utc": "2016-11-30T03:35:30Z",
+      "flags": "",
+      "disruptions": []
+    }
+  ]
+}

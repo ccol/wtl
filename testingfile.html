@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap - When To Leave</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="manifest.json">
+
+    <!--online resources-->
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+    <!--offline resources-->
+    <link rel="stylesheet" href="offline/bootstrap.css">
+    <script src="offline/jquery-3.1.1.js"></script>
+    <script src="offline/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="styles/wtl.css">
+  </head>
+  <body>
+    <div class="container" hidden>
+
+    </div>
+
+    <script type="text/javascript">
+      "use strict";
+      var url = 'test.json';
+
+      //TODO: fetch to be replaced by function above once caches and service worker is set up
+      fetch(url).then(function(response){
+        return response.json().then(function(data){
+          if(data.error_message){
+            console.log('error message json value: ' + data.error_message);
+            showError(data.error_message);
+          }else{
+            for (var i = 0; i < data.values.length; i++) {
+              console.log(data.values[i].platform.direction.direction_id);
+              console.log(data.values[i].platform.direction.direction_name);
+              /*var option = document.createElement("option");
+              option.value = data[i].platform.direction.direction_id;
+              option.text = data[i].platform.direction.direction_name;
+              selectList.appendChild(option);*/
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

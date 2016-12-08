@@ -43,6 +43,8 @@
 
         <div class="form-group input-selection stopsSelection"></div>
 
+        <div class="form-group input-selection directionsSelection"></div>
+
         <div id="times-div" hidden>
           Between which times do you want to be notified?
           <div class="row">
@@ -203,6 +205,10 @@
         if(document.querySelector(".stopsSelection")){
           document.querySelector(".stopsSelection").setAttribute('hidden', true);
         }
+        //hide the 'directions' dropdown if it exists
+        if(document.querySelector(".directionsSelection")){
+          document.querySelector(".directionsSelection").setAttribute('hidden', true);
+        }
         //hide the 'times-div' div if it exists
         if(document.getElementById('times-div')){
           document.getElementById('times-div').setAttribute('hidden', true);
@@ -231,7 +237,7 @@
                 var linesDiv = document.querySelector(".linesSelection");
                 var labelFor = document.createElement("label");
                 labelFor.htmlFor = "lines";
-                labelFor.innerHTML = "Line/Route TODO trains at least will need a direction...";
+                labelFor.innerHTML = "Line/Route";
                 linesDiv.appendChild(labelFor);
                 selectList = document.createElement("select");
                 selectList.id = "lines";
@@ -295,7 +301,7 @@
                 selectList = document.createElement("select");
                 selectList.id = "stops";
                 selectList.className = "form-control";
-                selectList.onchange = function(){loadTimes();};
+                selectList.onchange = function(){loadTimes(this);};
                 stopsDiv.appendChild(selectList);
               }
 
@@ -318,10 +324,16 @@
         }).then(function(){
           //remove loading spinner
           document.querySelector('.loader').setAttribute('hidden', true);
-        });;
+        });
       }
 
-      function loadTimes(){
+      function loadTimes(obj){
+        //this gets called onchange of stop, but a check needs to be done if it's a train or tram - we need direction
+        //if(document.getElementById("modes").value == 0 || document.getElementById("modes").value == 1){
+          //load the direction
+          loadDirections(obj);
+        //}
+        //now load the times section
         var selectList;
         if(document.getElementById('times-div')){
           selectList = document.getElementById('times-div');
@@ -333,6 +345,76 @@
           selectList.onchange = function(){loadTimes();};
           stopsDiv.appendChild(selectList);
         }
+      }
+
+      function loadDirections(obj){
+        //display the loading spinner
+        document.querySelector('.loader').removeAttribute('hidden');
+
+        var url = 'get_directions.php?mode=' + modes.value + '&stop=' + obj.value;
+
+        //TODO: fetch to be replaced by function above once caches and service worker is set up
+        fetch(url).then(function(response){
+          return response.json().then(function(data){
+            if(data.error_message){
+              console.log('error message json value: ' + data.error_message);
+              showError(data.error_message);
+            }else{
+              //sort in alphabetical order
+              //data = sortByKey(data, 'line_name');
+              //Create and append select list, but check if exists first
+              var selectList;
+              if(document.getElementById('directions')){
+                selectList = document.getElementById('directions');
+                selectList.removeAttribute('hidden');
+                clearSelect(selectList);
+                document.querySelector(".directionsSelection").removeAttribute('hidden');
+              }else{
+                var directionsDiv = document.querySelector(".directionsSelection");
+                directionsDiv.removeAttribute('hidden');
+                var labelFor = document.createElement("label");
+                labelFor.htmlFor = "directions";
+                labelFor.innerHTML = "Which direction?";
+                directionsDiv.appendChild(labelFor);
+                selectList = document.createElement("select");
+                selectList.id = "directions";
+                selectList.className = "form-control";
+                //not required
+                //selectList.onchange = function(){loadTimes();};
+                directionsDiv.appendChild(selectList);
+              }
+
+
+              //Create and append the options - start with initial blank
+              var initialOption = document.createElement("option");
+              initialOption.value = "";
+              initialOption.text = "select direction";
+              initialOption.disabled = true;
+              initialOption.selected = true;
+              selectList.appendChild(initialOption);
+              for (var i = 0; i < data.values.length; i++) {
+                //the api is dumb - as it only takes MODE and STOP as a paramter, and not LINE, it technically returns directions belonging to other routes
+                //e.g. Select bus route 906, Maggs St, and it includes Frankston as a direction which only belongs to the route 901
+                //this really should be a parameter in the API, but instead we'll need to manually check it (fortunately line_id is inside this object we're getting back, so we can simply crosscheck it with the line_id already selected on the page)
+                if(document.getElementById("lines").value == data.values[i].platform.direction.line.line_id){
+                  var option = document.createElement("option");
+                  option.value = data.values[i].platform.direction.direction_id;
+                  option.text = data.values[i].platform.direction.direction_name;
+                  selectList.appendChild(option);
+                }
+                //but if there's only one direction, then make this the selected one
+                if(selectList.length == 2){
+                  selectList.selectedIndex = 1;
+                }else{
+                  selectList.selectedIndex = 0;
+                }
+              }
+            }
+          });
+        }).then(function(){
+          //remove loading spinner
+          document.querySelector('.loader').setAttribute('hidden', true);
+        });
       }
 
       function showError(errorMessage){
@@ -383,6 +465,7 @@
         var modeDropdown = document.getElementById('modes');
         var lineDropdown = document.getElementById('lines');
         var stopDropdown = document.getElementById('stops');
+        var directionDropdown = document.getElementById('directions');
         var startTimeDropdown = document.getElementById('startTime');
         var endTimeDropdown = document.getElementById('endTime');
         var minutesAwayValue = document.getElementById('minutesAway').value;
@@ -390,6 +473,7 @@
         var selectedMode = modeDropdown.options[modeDropdown.selectedIndex];
         var selectedLine = lineDropdown.options[lineDropdown.selectedIndex];
         var selectedStop = stopDropdown.options[stopDropdown.selectedIndex];
+        var selectedDirection = directionDropdown.options[directionDropdown.selectedIndex];
         var selectedStartTime = startTimeDropdown.options[startTimeDropdown.selectedIndex];
         var selectedEndTime = endTimeDropdown.options[endTimeDropdown.selectedIndex];
 
@@ -401,6 +485,9 @@
 
         var selectedStopValue = selectedStop.value;
         var selectedStopText = selectedStop.textContent;
+
+        var selectedDirectionValue = selectedDirection.value;
+        var selectedDirectionText = selectedDirection.textContent;
 
         var selectedStartTimeValue = selectedStartTime.value;
         var selectedStartTimeText = selectedStartTime.textContent;
@@ -420,6 +507,7 @@
         app.wtlSelectedNotifications.push({key: uniqueKey, modeValue: selectedModeValue, modeText: selectedModeText,
           lineValue: selectedLineValue, lineText: selectedLineText,
           stopValue: selectedStopValue, stopText: selectedStopText,
+          directionValue: selectedDirectionValue, directionText: selectedDirectionText,
           startTimeValue: selectedStartTimeText, startTimeText: selectedStartTimeText,
           endTimeValue: selectedEndTimeValue, endTimeText: selectedEndTimeText,
           minutesAway: minutesAwayValue}
@@ -434,7 +522,9 @@
         subscribe();
         //}
 
-        //TODO need to load notifications so you can see your saved one immediately
+        //TODO need to load notifications so you can see your saved one immediately after button click first time
+        ///if this function always uses app.wtlSelectedNotifications, it may not require a parameeter...try that.
+        loadNotifications();
       });
 
       app.saveWtlSelectedNotifications = function() {
@@ -449,34 +539,7 @@
 
       app.wtlSelectedNotifications = localStorage.wtlSelectedNotifications;
       if (app.wtlSelectedNotifications) {
-        app.wtlSelectedNotifications = JSON.parse(app.wtlSelectedNotifications);
-        app.wtlSelectedNotifications.forEach(function(notification) {
-          console.log('app.wtlSelectedNotifications loaded, notification.selectedLineText: ' + notification.lineText);
-          //UP TO HERE
-          var savedNotifications = document.getElementById("savedNotifications");
-          var newRow = document.createElement("div")
-          newRow.className = "row";
-          newRow.id = notification.key;
-
-          var newColumn = document.createElement("div");
-          newColumn.className = "col-xs-11 col-md-11 lightblue";
-          newColumn.innerHTML = "Test: " + notification.lineText;
-
-          newRow.appendChild(newColumn);
-
-          var deleteButtonColumn = document.createElement("div");
-          deleteButtonColumn.className = "col-xs-1 col-md-1 gray";
-          deleteButtonColumn.innerHTML = '<button type="button" class="btn btn-link" onclick="deleteNotification(\'' + notification.key + '\');">Delete</button>';
-          newRow.appendChild(deleteButtonColumn);
-
-          savedNotifications.appendChild(newRow);
-
-
-          //savedNotifications.appendChild(newColumn);
-
-          //TODO write a 'getNotifications' function to display at ht ebottom of the page in a "Current notifications" setup, then add delete button etc.
-          //app.getForecast(city.key, city.label);
-        });
+        loadNotifications();
       } else {
         // The user is using the app for the first time, or the user has not saved any cities, so show the user some fake data.
         console.log('Using the app for the first time');
@@ -486,6 +549,35 @@
           {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
         ];
         app.saveSelectedCities();*/
+      }
+
+      function loadNotifications(){
+        if(typeof app.wtlSelectedNotifications == 'string'){
+          app.wtlSelectedNotifications = JSON.parse(app.wtlSelectedNotifications);
+        }
+        app.wtlSelectedNotifications.forEach(function(notification) {
+          console.log('notification.selectedLineText: ' + notification.lineText);
+
+          var savedNotifications = document.getElementById("savedNotifications");
+          var newRow = document.createElement("div")
+          newRow.className = "row";
+          newRow.id = notification.key;
+
+          var newColumn = document.createElement("div");
+          newColumn.className = "col-xs-11 col-md-11 lightblue";
+          newColumn.innerHTML = notification.modeText + ", " + notification.lineText + ", from " + notification.stopText +
+            ", to " + notification.directionText + ", notifying you from " + notification.startTimeText + " to " + notification.endTimeText +
+            ", with a buffer of " + notification.minutesAway + " minutes";
+
+          newRow.appendChild(newColumn);
+
+          var deleteButtonColumn = document.createElement("div");
+          deleteButtonColumn.className = "col-xs-1 col-md-1 gray";
+          deleteButtonColumn.innerHTML = '<button type="button" class="btn btn-link" onclick="deleteNotification(\'' + notification.key + '\');">Delete</button>';
+          newRow.appendChild(deleteButtonColumn);
+
+          savedNotifications.appendChild(newRow);
+        });
       }
 
       function deleteNotification(key){
@@ -546,6 +638,10 @@
           console.log('Subscribed! Endpoint:', sub.endpoint);
 
           //CC Custom Code:
+          //TODO this needs smartening up. If subscriberID is going to be used as the unique key, then
+          //There needs to be on page load a querying of the db to fetch the localStorage subscriberID from the db
+          //That way, in these subscribe functions, if ever it changes it can simply update it
+
           //start send endpoint to php for saving
           $.post("save_gcm.php", {data: sub.endpoint}, function(response){
             console.log("response: " + response);
