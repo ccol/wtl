@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bootstrap - When To Leave</title>
+    <title>DatabaseTesting - When To Leave</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -810,6 +810,19 @@
       $(document).ready(function(){
           $('[data-toggle="tooltip"]').tooltip();
       });
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAJ-tB2Qq2KGb1Fr-y-MAMsSDfiapuGTGg",
+        authDomain: "push-transport.firebaseapp.com",
+        databaseURL: "https://push-transport.firebaseio.com",
+        storageBucket: "push-transport.appspot.com",
+        messagingSenderId: "13537437401"
+      };
+      firebase.initializeApp(config);
     </script>
 
   </body>
