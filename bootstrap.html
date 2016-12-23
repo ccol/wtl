@@ -260,6 +260,13 @@
                 option.text = data[i].line_name;
                 selectList.appendChild(option);
               }
+
+              //clear the Direction selectList
+              if(document.getElementById('directions')){
+                selectList = document.getElementById('directions');
+                selectList.removeAttribute('hidden');
+                clearSelect(selectList);
+              }
             }
           });
         }).then(function(){
@@ -318,6 +325,13 @@
                 option.value = data[i].stop_id;
                 option.text = data[i].location_name;
                 selectList.appendChild(option);
+              }
+
+              //clear the Direction selectList
+              if(document.getElementById('directions')){
+                selectList = document.getElementById('directions');
+                selectList.removeAttribute('hidden');
+                clearSelect(selectList);
               }
             }
           });
